@@ -29,6 +29,9 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,10 +44,16 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ble.net, Version=0.12.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ble.net.0.12.14\lib\portable45-net45+win8\ble.net.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Components\Monkey.Robotics-0.5.2\lib\android\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nexus.core, Version=0.29.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\nexus.core.0.29.4\lib\portable45-net45+win8\nexus.core.dll</HintPath>
     </Reference>
     <Reference Include="Robotics.Mobile.Core">
       <HintPath>..\Components\Monkey.Robotics-0.5.2\lib\android\Robotics.Mobile.Core.dll</HintPath>
@@ -63,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>

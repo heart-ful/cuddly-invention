@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Android.App;
 using Android.Bluetooth;
 using Android.Bluetooth.LE;
@@ -6,6 +7,7 @@ using Android.OS;
 using Android.Widget;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using Adapter = Robotics.Mobile.Core.Bluetooth.LE.Adapter;
+using Java.Util;
 
 namespace AndroidApp4
 {
@@ -34,6 +36,11 @@ namespace AndroidApp4
             _bleAdapter = new Adapter();
             _bleAdapter.DeviceDiscovered += _bleAdapter_DeviceDiscovered;
             _bleAdapter.ScanTimeoutElapsed += _bleAdapter_ScanTimeoutElapsed;
+
+            BluetoothDevice device = _adapter.BondedDevices.SingleOrDefault(bd =>
+                                      bd.Name.Contains("CooSpo"));
+
+            BluetoothSocket _socket = device.CreateRfcommSocketToServiceRecord(UUID.FromString("eb4b89805b9f"));
         }
 
         private void _bleAdapter_ScanTimeoutElapsed(object sender, EventArgs e)
@@ -44,8 +51,8 @@ namespace AndroidApp4
 
         private void _bleAdapter_DeviceDiscovered(object sender, DeviceDiscoveredEventArgs e)
         {
-            var msg = string.Format(@"Device found: {0}
-  {1} - {2}", e.Device.Name, e.Device.ID, e.Device.Rssi);
+            var msg = string.Format(@"Device found: {0} and
+    {1}", e.Device.Name, e.Device.ID);
             DisplayInformation(msg);
         }
 
@@ -60,7 +67,5 @@ namespace AndroidApp4
             _textboxResults.Text = $"{line}\r\n{_textboxResults.Text}";
             Console.WriteLine(line);
         }
-
     }
 }
-
