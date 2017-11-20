@@ -2,4 +2,15 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">AndroidApp4</string>
+    <string name="planet_prompt">Choose a planet</string>
+    <string-array name="planets_array">
+      <item>Bicycling</item>
+      <item>Swimming</item>
+      <item>Lifting Weights</item>
+      <item>Running</item>
+      <item>Zumbaing</item>
+      <item>Yoga</item>
+      <item>Parkour</item>
+      <item>Insanity</item>
+    </string-array>
 </resources>

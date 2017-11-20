@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/relativeLayout2">
+    <Button
+        p1:text="History"
+        p1:layout_width="149.5dp"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/historybutton" />
+    <Button
+        p1:text="Bluetooth"
+        p1:layout_width="118.0dp"
+        p1:layout_height="wrap_content"
+        p1:layout_toRightOf="@id/historybutton"
+        p1:id="@+id/blue" />
+    <Button
+        p1:text="Workout"
+        p1:layout_width="207.0dp"
+        p1:layout_height="wrap_content"
+        p1:layout_toRightOf="@id/blue"
+        p1:id="@+id/wbutton" />
+    <EditText
+        p1:layout_width="370.5dp"
+        p1:layout_height="100.5dp"
+        p1:layout_below="@id/wbutton"
+        p1:id="@+id/edit"
+        p1:layout_marginRight="0.0dp"
+        p1:layout_marginBottom="0.0dp"
+        p1:inputType="text"
+        p1:layout_marginTop="5.0dp"
+        p1:text="Enter Heartrate goal:" />
+    <EditText
+        p1:layout_width="370.5dp"
+        p1:layout_height="100.5dp"
+        p1:layout_below="@id/edit"
+        p1:id="@+id/edit2"
+        p1:layout_marginRight="0.0dp"
+        p1:layout_marginBottom="0.0dp"
+        p1:inputType="text"
+        p1:layout_marginTop="10.0dp"
+        p1:text="Enter Heartrate length of time:" />
+    <Button
+        p1:text="submit"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:layout_below="@+id/edit2"
+        p1:id="@+id/submit" />
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        p1:layout_width="380.0dp"
+        p1:layout_height="90.0dp"
+        p1:layout_below="@id/submit"
+        p1:id="@+id/progressBar1"
+        p1:background="#00FF00"
+        p1:layout_marginLeft="10.0dp"
+        p1:layout_marginRight="10.0dp" />
+</RelativeLayout>

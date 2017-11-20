@@ -11,7 +11,7 @@ using Java.Util;
 
 namespace AndroidApp4
 {
-    [Activity(Label = "Search BLE devices", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Search BLE devices", MainLauncher = false, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private Button _buttonScanBle;
@@ -37,10 +37,6 @@ namespace AndroidApp4
             _bleAdapter.DeviceDiscovered += _bleAdapter_DeviceDiscovered;
             _bleAdapter.ScanTimeoutElapsed += _bleAdapter_ScanTimeoutElapsed;
 
-            BluetoothDevice device = _adapter.BondedDevices.SingleOrDefault(bd =>
-                                      bd.Name.Contains("CooSpo"));
-
-            BluetoothSocket _socket = device.CreateRfcommSocketToServiceRecord(UUID.FromString("eb4b89805b9f"));
         }
 
         private void _bleAdapter_ScanTimeoutElapsed(object sender, EventArgs e)

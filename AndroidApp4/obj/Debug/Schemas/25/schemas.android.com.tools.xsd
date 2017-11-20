@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>11/16/2017 5:45:24 PM</xs:documentation>
+    <xs:documentation>11/20/2017 3:17:48 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -12,7 +12,11 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
+            <xs:enumeration value="@layout/goals" />
+            <xs:enumeration value="@layout/history" />
+            <xs:enumeration value="@layout/landing" />
             <xs:enumeration value="@layout/main" />
+            <xs:enumeration value="@layout/workout" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -61,7 +65,11 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
+            <xs:enumeration value="@layout/goals" />
+            <xs:enumeration value="@layout/history" />
+            <xs:enumeration value="@layout/landing" />
             <xs:enumeration value="@layout/main" />
+            <xs:enumeration value="@layout/workout" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -110,7 +118,11 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
+            <xs:enumeration value="@layout/goals" />
+            <xs:enumeration value="@layout/history" />
+            <xs:enumeration value="@layout/landing" />
             <xs:enumeration value="@layout/main" />
+            <xs:enumeration value="@layout/workout" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -159,7 +171,11 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
+            <xs:enumeration value="@layout/goals" />
+            <xs:enumeration value="@layout/history" />
+            <xs:enumeration value="@layout/landing" />
             <xs:enumeration value="@layout/main" />
+            <xs:enumeration value="@layout/workout" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -211,6 +227,7 @@
             <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/library_name" />
+            <xs:enumeration value="@string/planet_prompt" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />

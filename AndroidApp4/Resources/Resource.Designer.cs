@@ -29,6 +29,22 @@ namespace AndroidApp4
 			global::Robotics.Mobile.Core.Resource.String.library_name = global::AndroidApp4.Resource.String.library_name;
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int planets_array = 2131034112;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -46,7 +62,13 @@ namespace AndroidApp4
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int heart_graph_1 = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int hrgraph = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int icon = 2130837506;
 			
 			static Drawable()
 			{
@@ -61,11 +83,77 @@ namespace AndroidApp4
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int ButtonSearchBle = 2131034112;
+			// aapt resource value: 0x7f060014
+			public const int ButtonSearchBle = 2131099668;
 			
-			// aapt resource value: 0x7f050001
-			public const int TextBoxResults = 2131034113;
+			// aapt resource value: 0x7f060015
+			public const int TextBoxResults = 2131099669;
+			
+			// aapt resource value: 0x7f060002
+			public const int blue = 2131099650;
+			
+			// aapt resource value: 0x7f060010
+			public const int button1 = 2131099664;
+			
+			// aapt resource value: 0x7f060011
+			public const int button2 = 2131099665;
+			
+			// aapt resource value: 0x7f060012
+			public const int button3 = 2131099666;
+			
+			// aapt resource value: 0x7f060013
+			public const int button4 = 2131099667;
+			
+			// aapt resource value: 0x7f060004
+			public const int edit = 2131099652;
+			
+			// aapt resource value: 0x7f060005
+			public const int edit2 = 2131099653;
+			
+			// aapt resource value: 0x7f06000a
+			public const int gbutton = 2131099658;
+			
+			// aapt resource value: 0x7f060001
+			public const int historybutton = 2131099649;
+			
+			// aapt resource value: 0x7f060008
+			public const int homebutton = 2131099656;
+			
+			// aapt resource value: 0x7f06000b
+			public const int imageView1 = 2131099659;
+			
+			// aapt resource value: 0x7f06000f
+			public const int linearLayout1 = 2131099663;
+			
+			// aapt resource value: 0x7f060007
+			public const int progressBar1 = 2131099655;
+			
+			// aapt resource value: 0x7f060016
+			public const int relativeLayout1 = 2131099670;
+			
+			// aapt resource value: 0x7f060000
+			public const int relativeLayout2 = 2131099648;
+			
+			// aapt resource value: 0x7f060017
+			public const int spinning = 2131099671;
+			
+			// aapt resource value: 0x7f060006
+			public const int submit = 2131099654;
+			
+			// aapt resource value: 0x7f06000c
+			public const int textView1 = 2131099660;
+			
+			// aapt resource value: 0x7f06000d
+			public const int textView2 = 2131099661;
+			
+			// aapt resource value: 0x7f06000e
+			public const int textView3 = 2131099662;
+			
+			// aapt resource value: 0x7f060009
+			public const int wblue = 2131099657;
+			
+			// aapt resource value: 0x7f060003
+			public const int wbutton = 2131099651;
 			
 			static Id()
 			{
@@ -81,7 +169,19 @@ namespace AndroidApp4
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int Goals = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int History = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Landing = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int Main = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int Workout = 2130903044;
 			
 			static Layout()
 			{
@@ -104,6 +204,9 @@ namespace AndroidApp4
 			
 			// aapt resource value: 0x7f040000
 			public const int library_name = 2130968576;
+			
+			// aapt resource value: 0x7f040003
+			public const int planet_prompt = 2130968579;
 			
 			static String()
 			{

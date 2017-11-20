@@ -1,0 +1,2983 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>nexus.core</name>
+  </assembly>
+  <members>
+    <member name="T:nexus.core.ActionAsync`1">
+      <summary>
+        <see cref="T:System.Action`1" /> but returns Task. Equivalent to <see cref="T:System.Func`2" /></summary>
+    </member>
+    <member name="T:nexus.core.ActionAsync`2">
+      <summary>
+        <see cref="T:System.Action`2" /> but returns Task. Equivalent to <see cref="T:System.Func`3" /></summary>
+    </member>
+    <member name="T:nexus.core.ActionAsync`3">
+      <summary>
+        <see cref="T:System.Action`3" /> but returns Task. Equivalent to <see cref="T:System.Func`4" /></summary>
+    </member>
+    <member name="T:nexus.core.ActionAsync`4">
+      <summary>
+        <see cref="T:System.Action`4" /> but returns Task. Equivalent to <see cref="T:System.Func`5" /></summary>
+    </member>
+    <member name="T:nexus.core.ActionAsync`5">
+      <summary>
+        <see cref="T:System.Action`5" /> but returns Task. Equivalent to <see cref="T:System.Func`6" /></summary>
+    </member>
+    <member name="T:nexus.core.ActionAsync`6">
+      <summary>
+        <see cref="T:System.Action`6" /> but returns Task. Equivalent to
+            <see cref="T:System.Func`7" /></summary>
+    </member>
+    <member name="T:nexus.core.ActionObserver`1">
+      <summary>
+        <see cref="T:System.IObserver`1" /> which takes <see cref="T:System.Action`1" /> in ctor for each
+            </summary>
+    </member>
+    <member name="M:nexus.core.ActionObserver`1.#ctor(System.Action{`0},System.Action,System.Action{System.Exception})">
+      <summary />
+    </member>
+    <member name="M:nexus.core.ActionObserver`1.OnCompleted">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ActionObserver`1.OnError(System.Exception)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ActionObserver`1.OnNext(`0)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ActionObserver`1.op_Implicit(System.Action{`0})~nexus.core.ActionObserver{`0}">
+      <summary>
+            Create a <see cref="T:nexus.core.ActionObserver`1" /> from an <see cref="T:System.Action" /><paramref name="onNext" /></summary>
+    </member>
+    <member name="T:nexus.core.Bytes">
+      <summary>
+            Utility methods and constants related to <see cref="T:System.Byte" /> manipulation
+            </summary>
+    </member>
+    <member name="F:nexus.core.Bytes.Null">
+      <summary>
+            zero byte
+            </summary>
+    </member>
+    <member name="F:nexus.core.Bytes.Space">
+      <summary>
+            32
+            </summary>
+    </member>
+    <member name="F:nexus.core.Bytes.Linefeed">
+      <summary>
+            10
+            </summary>
+    </member>
+    <member name="P:nexus.core.Bytes.HostEnvironmentByteOrder">
+      <summary>
+            The byte order of the underlying host platform
+            </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.EqualsByteArray(System.Byte[],System.Byte[])">
+      <summary>
+            Compare two byte arrays and return true if they are the same length and have the same values at each index
+            </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.IsNullOrEmpty(System.Byte[])">
+      <summary>
+        <code>bytes == null || bytes.Length &lt;= 0</code>
+      </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.IsNullOrEmptyOrNullByte(System.Byte[])">
+      <summary>
+        <code>bytes == null || bytes.Length &lt;= 0 || (bytes.Length == 1 &amp;&amp; bytes[0] == 0)</code>
+      </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.Slice(System.Byte[],System.Int32)">
+      <summary>
+            Copies the byte array starting at the provided index through the last element of the array.
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="source != null" vb="source &lt;&gt; Nothing">source != null</requires>
+      <exception cref="T:System.ArgumentNullException"> source == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="source.Length &gt;= startByteIndex" vb="source.Length &gt;= startByteIndex">source.Length &gt;= startByteIndex</requires>
+      <exception cref="T:System.ArgumentException"> source.Length &lt; startByteIndex </exception>
+      <requires exception="T:System.ArgumentException" csharp="startByteIndex &gt;= 0" vb="startByteIndex &gt;= 0">startByteIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startByteIndex &lt; 0 </exception>
+      <ensures csharp="Contract.Result&lt;byte[]&gt;() != null" vb="Contract.Result(Of Byte())() &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:nexus.core.Bytes.Slice(System.Byte[],System.Int32,System.Int32)">
+      <summary>
+            Copies the selected range of bytes from the source array
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="source != null" vb="source &lt;&gt; Nothing">source != null</requires>
+      <exception cref="T:System.ArgumentNullException"> source == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startByteIndex &gt;= 0" vb="startByteIndex &gt;= 0">startByteIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startByteIndex &lt; 0 </exception>
+      <requires exception="T:System.ArgumentException" csharp="endByteIndex &gt;= startByteIndex" vb="endByteIndex &gt;= startByteIndex">endByteIndex &gt;= startByteIndex</requires>
+      <exception cref="T:System.ArgumentException"> endByteIndex &lt; startByteIndex </exception>
+      <ensures csharp="Contract.Result&lt;byte[]&gt;() != null" vb="Contract.Result(Of Byte())() &lt;&gt; Nothing">result != null</ensures>
+      <ensures csharp="Contract.Result&lt;byte[]&gt;().Length == endByteIndex - startByteIndex" vb="Contract.Result(Of Byte())().Length = endByteIndex - startByteIndex">result.Length == endByteIndex - startByteIndex</ensures>
+    </member>
+    <member name="M:nexus.core.Bytes.ToBytes(System.Int16,nexus.core.ByteOrder)">
+      <summary>
+            Convert <see cref="T:System.Int16" /> to a byte array
+            </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.ToBytes(System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert <see cref="T:System.Int32" /> to a byte array
+            </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.ToBytes(System.Int64,nexus.core.ByteOrder)">
+      <summary>
+            Convert <see cref="T:System.Int64" /> to a byte array
+            </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.ToBytes(System.UInt16,nexus.core.ByteOrder)">
+      <summary>
+            Convert <see cref="T:System.UInt16" /> to a byte array
+            </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.ToBytes(System.UInt32,nexus.core.ByteOrder)">
+      <summary>
+            Convert <see cref="T:System.UInt32" /> to a byte array
+            </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.ToBytes(System.UInt64,nexus.core.ByteOrder)">
+      <summary>
+            Convert <see cref="T:System.UInt64" /> to a byte array
+            </summary>
+    </member>
+    <member name="M:nexus.core.Bytes.ToFloat32(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert byte array to <see cref="T:System.Single" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+    </member>
+    <member name="M:nexus.core.Bytes.ToFloat64(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert byte array to <see cref="T:System.Double" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+    </member>
+    <member name="M:nexus.core.Bytes.ToGuid(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert bytes array to <see cref="T:System.Guid" /> by parsing the bytes according to the endianness of
+            <paramref name="order" />. So if <see cref="F:nexus.core.ByteOrder.BigEndian" /> then <paramref name="bytes" /><c>[0]</c> will be
+            the left-most bytes of the GUID.
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+      <requires exception="T:System.ArgumentException" csharp="bytes.Length == default(System.UIntPtr) || bytes.Length - startIndex &gt;= 16" vb="bytes.Length = Nothing OrElse bytes.Length - startIndex &gt;= 16">bytes.Length == default(System.UIntPtr) || bytes.Length - startIndex &gt;= 16</requires>
+      <exception cref="T:System.ArgumentException"> bytes.Length != 0 &amp;&amp; bytes.Length - startIndex &lt; 16 </exception>
+    </member>
+    <member name="M:nexus.core.Bytes.ToInt16(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert byte array to <see cref="T:System.Int16" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+    </member>
+    <member name="M:nexus.core.Bytes.ToInt32(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert byte array to <see cref="T:System.Int32" />. This method does not throw if <paramref name="bytes" /> is not long enough
+            to fill <see cref="T:System.Int32" />, instead the missing bytes are presumed to be 0.
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+    </member>
+    <member name="M:nexus.core.Bytes.ToInt64(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert byte array to <see cref="T:System.Int64" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+    </member>
+    <member name="M:nexus.core.Bytes.ToUInt16(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert byte array to <see cref="T:System.UInt16" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+    </member>
+    <member name="M:nexus.core.Bytes.ToUInt32(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert byte array to <see cref="T:System.UInt32" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+    </member>
+    <member name="M:nexus.core.Bytes.ToUInt64(System.Byte[],System.Int32,nexus.core.ByteOrder)">
+      <summary>
+            Convert byte array to <see cref="T:System.UInt64" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="bytes != null" vb="bytes &lt;&gt; Nothing">bytes != null</requires>
+      <exception cref="T:System.ArgumentNullException"> bytes == null </exception>
+      <requires exception="T:System.ArgumentException" csharp="startIndex &gt;= 0" vb="startIndex &gt;= 0">startIndex &gt;= 0</requires>
+      <exception cref="T:System.ArgumentException"> startIndex &lt; 0 </exception>
+    </member>
+    <member name="T:nexus.core.IGenericObjectConverter`1">
+      <summary>
+            Serialize from any source type to a fixed result type <typeparamref name="TResult" />. If you want the source type to
+            be fixed as well, see <see cref="T:nexus.core.IObjectConverter`2" /></summary>
+    </member>
+    <member name="M:nexus.core.IGenericObjectConverter`1.Convert``1(``0)">
+      <summary>
+            Serialize from one type to another
+            </summary>
+    </member>
+    <member name="T:nexus.core.IUpdatable`1">
+      <summary>
+            Indicates that the provided value can be updated with new data <typeparamref name="T" /></summary>
+      <typeparam name="T" />
+    </member>
+    <member name="M:nexus.core.IUpdatable`1.Update(`0)">
+      <summary>
+            Update this object with new data
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.sink.ActionLogSink">
+      <summary>
+            Implementation of <see cref="T:nexus.core.logging.ILogSink" /> which passes log entries to an <see cref="T:System.Action" /> provided in ctor
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.sink.ActionLogSink.#ctor(System.Action{nexus.core.logging.ILogEntry})">
+      <summary>
+            Create an <see cref="T:nexus.core.logging.ILogSink" /> that will pass all entries to <paramref name="handler" /></summary>
+      <param name="handler">Handler to receive a single of log entry</param>
+      <requires csharp="handler != null" vb="handler &lt;&gt; Nothing">handler != null</requires>
+      <requires exception="T:System.ArgumentNullException" csharp="handler != null" vb="handler &lt;&gt; Nothing">handler != null</requires>
+      <exception cref="T:System.ArgumentNullException"> handler == null </exception>
+    </member>
+    <member name="M:nexus.core.logging.sink.ActionLogSink.#ctor(System.Action{nexus.core.logging.ILogEntry[]})">
+      <summary>
+            Create an <see cref="T:nexus.core.logging.ILogSink" /> that will pass all entries to <paramref name="handler" /></summary>
+      <param name="handler">Handler to receive a sequential list of log entries</param>
+      <requires csharp="handler != null" vb="handler &lt;&gt; Nothing">handler != null</requires>
+      <requires exception="T:System.ArgumentNullException" csharp="handler != null" vb="handler &lt;&gt; Nothing">handler != null</requires>
+      <exception cref="T:System.ArgumentNullException"> handler == null </exception>
+    </member>
+    <member name="M:nexus.core.logging.sink.ActionLogSink.Handle(nexus.core.logging.ILogEntry[])">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.logging.sink.CustomLogSerializerBuilder">
+      <summary>
+            A builder to dynamically create a new <see cref="T:nexus.core.IObjectConverter`2" />. Add steps and call
+            <see cref="M:nexus.core.logging.sink.CustomLogSerializerBuilder.Build" /> when complete.
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.sink.CustomLogSerializerBuilder.#ctor">
+      <summary />
+    </member>
+    <member name="P:nexus.core.logging.sink.CustomLogSerializerBuilder.Create">
+      <summary>
+            Syntax sugar for <code>new CustomLogSerializerBuilder()</code></summary>
+    </member>
+    <member name="P:nexus.core.logging.sink.CustomLogSerializerBuilder.FormatSteps">
+      <summary>
+            The format steps for thie builder
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.sink.CustomLogSerializerBuilder.Build">
+      <summary>
+            Construct your log serializer from the steps you've built
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.sink.CustomLogSerializerBuilder.GetEnumerator">
+      <inheritdoc cref="T:System.Collections.Generic.IEnumerable`1" />
+    </member>
+    <member name="M:nexus.core.logging.sink.CustomLogSerializerBuilder.Then(System.Func{nexus.core.logging.ILogEntry,System.String})">
+      <summary>
+            Append a format step to the end of the current list
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.sink.CustomLogSerializerBuilder.ThenForData``1(System.Func{nexus.core.logging.ILogEntry,``0,System.String},System.Func{nexus.core.logging.ILogEntry,System.String})">
+      <summary>
+            If an object of the provided type is attached to a given entry then <paramref name="formatStep" /> will be executed,
+            otherwise <paramref name="elseFormatStep" /> will be executed (or no-op if <paramref name="elseFormatStep" /> is
+            <c>null</c>)
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.sink.MergedLogSink">
+      <summary>
+            Takes two <see cref="T:nexus.core.logging.ILogSink" /> instances and calls them both sequentially when <see cref="M:nexus.core.logging.sink.MergedLogSink.Handle(nexus.core.logging.ILogEntry[])" /> is called
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.sink.MergedLogSink.#ctor(nexus.core.logging.ILogSink,nexus.core.logging.ILogSink,nexus.core.logging.ILogSink[])">
+      <summary />
+    </member>
+    <member name="M:nexus.core.logging.sink.MergedLogSink.Handle(nexus.core.logging.ILogEntry[])">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.logging.sink.SimpleLogEntryToStringConverter">
+      <summary>
+            Formats <see cref="T:nexus.core.logging.ILogEntry" /> as a string: "<see cref="P:nexus.core.logging.ILogEntry.Timestamp" /> [<see cref="P:nexus.core.logging.ILogEntry.Severity" />]
+            <see cref="P:nexus.core.logging.ILogEntry.DebugMessage" /><see cref="P:nexus.core.logging.ILogEntry.Data" />"
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.sink.SimpleLogEntryToStringConverter.#ctor(nexus.core.logging.LogExtensions.TimestampFormatType)">
+      <summary />
+    </member>
+    <member name="P:nexus.core.logging.sink.SimpleLogEntryToStringConverter.TimestampFormat">
+      <summary>
+            The timestamp format, see <see cref="T:nexus.core.logging.LogExtensions.TimestampFormatType" /></summary>
+    </member>
+    <member name="M:nexus.core.logging.sink.SimpleLogEntryToStringConverter.Convert(nexus.core.logging.ILogEntry)">
+      <summary>
+            Convert the log entry to a string
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.LogEntryComparers">
+      <summary>
+            Equality comparers for <see cref="T:nexus.core.logging.ILogEntry" />. See: <see cref="F:nexus.core.logging.LogEntryComparers.Full" />, <see cref="F:nexus.core.logging.LogEntryComparers.SequenceId" /></summary>
+    </member>
+    <member name="F:nexus.core.logging.LogEntryComparers.Full">
+      <inheritdoc cref="T:nexus.core.logging.LogEntryComparers.FullLogEntryComparer" />
+    </member>
+    <member name="F:nexus.core.logging.LogEntryComparers.SequenceId">
+      <inheritdoc cref="T:nexus.core.logging.LogEntryComparers.LogEntrySequenceComparer" />
+    </member>
+    <member name="T:nexus.core.logging.LogEntryComparers.FullLogEntryComparer">
+      <summary>
+            Compare all fields aside from <see cref="P:nexus.core.logging.ILogEntry.Data" /></summary>
+    </member>
+    <member name="M:nexus.core.logging.LogEntryComparers.FullLogEntryComparer.Equals(nexus.core.logging.ILogEntry,nexus.core.logging.ILogEntry)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.LogEntryComparers.FullLogEntryComparer.GetHashCode(nexus.core.logging.ILogEntry)">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.logging.LogEntryComparers.LogEntrySequenceComparer">
+      <summary>
+            When comparing <see cref="T:nexus.core.logging.ILogEntry" /> from the same log, simply check their <see cref="P:nexus.core.logging.ILogEntry.SequenceId" /> to
+            compare them
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.LogEntryComparers.LogEntrySequenceComparer.Compare(nexus.core.logging.ILogEntry,nexus.core.logging.ILogEntry)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.LogEntryComparers.LogEntrySequenceComparer.Equals(nexus.core.logging.ILogEntry,nexus.core.logging.ILogEntry)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.LogEntryComparers.LogEntrySequenceComparer.GetHashCode(nexus.core.logging.ILogEntry)">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.logging.DeferredMessageLogEntry">
+      <summary>
+            Immutable implementation of <see cref="T:nexus.core.logging.ILogEntry" /> which implementes <see cref="P:nexus.core.logging.DeferredMessageLogEntry.DebugMessage" /> as
+            <see cref="T:nexus.core.Deferred`1" /></summary>
+    </member>
+    <member name="M:nexus.core.logging.DeferredMessageLogEntry.#ctor(System.Int32,System.DateTime,nexus.core.logging.LogLevel,System.Collections.Generic.IEnumerable{System.Object},System.Func{System.String},System.Collections.Generic.IEqualityComparer{nexus.core.logging.ILogEntry})">
+      <inheritdoc cref="T:nexus.core.logging.DeferredMessageLogEntry" />
+    </member>
+    <member name="P:nexus.core.logging.DeferredMessageLogEntry.Data">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.DeferredMessageLogEntry.DebugMessage">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.DeferredMessageLogEntry.SequenceId">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.DeferredMessageLogEntry.Severity">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.DeferredMessageLogEntry.Timestamp">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.DeferredMessageLogEntry.Equals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.DeferredMessageLogEntry.Equals(nexus.core.logging.ILogEntry)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.DeferredMessageLogEntry.GetHashCode">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.DeferredMessageLogEntry.ToString">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.logging.MutableLogEntry">
+      <summary>
+            Mutable <see cref="T:nexus.core.logging.ILogEntry" />, sets <see cref="P:nexus.core.logging.ILogEntry.Data" /> to an empty array to start.
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.MutableLogEntry.#ctor">
+      <inheritdoc cref="T:nexus.core.logging.MutableLogEntry" />
+    </member>
+    <member name="M:nexus.core.logging.MutableLogEntry.#ctor(System.Collections.Generic.IEqualityComparer{nexus.core.logging.ILogEntry})">
+      <inheritdoc cref="T:nexus.core.logging.MutableLogEntry" />
+    </member>
+    <member name="P:nexus.core.logging.MutableLogEntry.Data">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.MutableLogEntry.DebugMessage">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.MutableLogEntry.SequenceId">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.MutableLogEntry.Severity">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.MutableLogEntry.Timestamp">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.MutableLogEntry.Equals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.MutableLogEntry.Equals(nexus.core.logging.ILogEntry)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.MutableLogEntry.GetHashCode">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.MutableLogEntry.ToString">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.logging.ILog">
+      <summary>
+            Interface to write information to a log
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.ILog.CurrentLevel">
+      <summary>
+            Only entries of this level or higher will be written to the log, others will be silently dropped.
+            <remarks>To modify this value, see the <see cref="T:nexus.core.logging.ILogControl" /> corresponding to this <see cref="T:nexus.core.logging.ILog" /></remarks></summary>
+    </member>
+    <member name="M:nexus.core.logging.ILog.Write(nexus.core.logging.LogLevel,System.String,System.Object[])">
+      <summary>
+            Write a log entry with the given data and severity
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.ILog.Write(nexus.core.logging.LogLevel,System.Object[])">
+      <summary>
+            Write a log entry with the given data and severity
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.ILog.Write(nexus.core.logging.LogLevel,System.Object[],System.String,System.Object[])">
+      <summary>
+            Write a log entry with the given data and severity
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.LogWriteExtensions">
+      <summary>
+            Extension methods for <see cref="T:nexus.core.logging.ILog" /> to write a given log level
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Debug(nexus.core.logging.ILog,System.Object[])">
+      <summary>
+            Write a <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log entry only when compiling with the DEBUG flag
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Debug(nexus.core.logging.ILog,System.String,System.Object[])">
+      <summary>
+            Write a <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log entry only when compiling with the DEBUG flag
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Debug(nexus.core.logging.ILog,System.Object[],System.String,System.Object[])">
+      <summary>
+            Write a <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log entry only when compiling with the DEBUG flag
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Debug(nexus.core.logging.ILog,System.Exception,System.String,System.Object[])">
+      <summary>
+            Utility method to wrap the exception in an object array and write it to the log only when compiling with the DEBUG
+            flag, (<c>new Object[] {exception}</c>)
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Error(nexus.core.logging.ILog,System.Exception,System.String,System.Object[])">
+      <summary>
+            Utility method to wrap the exception in an object array and write it to the log, (<c>new Object[] {exception}</c>)
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Error(nexus.core.logging.ILog,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Error" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Error(nexus.core.logging.ILog,System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Error" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Error(nexus.core.logging.ILog,System.Object[],System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Error" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Info(nexus.core.logging.ILog,System.Exception,System.String,System.Object[])">
+      <summary>
+            Utility method to wrap the exception in an object array and write it to the log, (<c>new Object[] {exception}</c>)
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Info(nexus.core.logging.ILog,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Info" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Info(nexus.core.logging.ILog,System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Info" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Info(nexus.core.logging.ILog,System.Object[],System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Info" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Trace(nexus.core.logging.ILog,System.Exception,System.String,System.Object[])">
+      <summary>
+            Utility method to wrap the exception in an object array and write it to the log, (<c>new Object[] {exception}</c>)
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Trace(nexus.core.logging.ILog,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Trace(nexus.core.logging.ILog,System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Trace(nexus.core.logging.ILog,System.Object[],System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Warn(nexus.core.logging.ILog,System.Exception,System.String,System.Object[])">
+      <summary>
+            Utility method to wrap the exception in an object array and write it to the log, (<c>new Object[] {exception}</c>)
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Warn(nexus.core.logging.ILog,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Warn" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Warn(nexus.core.logging.ILog,System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Warn" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="M:nexus.core.logging.LogWriteExtensions.Warn(nexus.core.logging.ILog,System.Object[],System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Warn" /> level log data
+            </summary>
+      <requires csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+    </member>
+    <member name="T:nexus.core.logging.ILogControl">
+      <summary>
+            Allows manipulation of log settings
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogControl.CurrentLevel">
+      <summary>
+            The level of log entires to write. Only entries of this level and above will be written to the log, others will
+            dropped.
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogControl.DebugMessageFormatProvider">
+      <summary>
+            The format provider to use for the debug message and arguments. Defaults to <see cref="P:System.Globalization.CultureInfo.InvariantCulture" /></summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogControl.ObjectConverters">
+      <summary>
+            A list of the <see cref="T:nexus.core.IObjectConverter" /> added to this log
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogControl.Sinks">
+      <summary>
+            A list of the <see cref="T:nexus.core.logging.ILogSink" /> added to this log
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.ILogControl.AddConverter(nexus.core.IObjectConverter)">
+      <summary>
+            Add a converter which will convert any viable objects attached to log entries. Returns <see cref="T:System.IDisposable" /> which
+            removes <paramref name="converter" /> upon calling <see cref="M:System.IDisposable.Dispose" /> -- note that this just removes
+            the converter from this <see cref="T:nexus.core.logging.ILogControl" /> it does not dispose of the converter itself.
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.ILogControl.AddSink(nexus.core.logging.ILogSink)">
+      <summary>
+            Will dispatch logs to the provided listener after formatting them and checking that the current log level is met.
+            Returns <see cref="T:System.IDisposable" /> which removes <paramref name="sink" /> upon calling
+            <see cref="M:System.IDisposable.Dispose" /> -- note that this just removes the sink from this <see cref="T:nexus.core.logging.ILogControl" /> it does
+            not dispose of the sink itself.
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.ILogControl.RemoveConverter(nexus.core.IObjectConverter)">
+      <summary>
+            Remove the given <see cref="T:nexus.core.IObjectConverter" /> from this log, and return success
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.ILogControl.RemoveSink(nexus.core.logging.ILogSink)">
+      <summary>
+            Remove the given <see cref="T:nexus.core.logging.ILogSink" /> from this log, and return success
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.ILogEntry">
+      <summary>
+            Represents a single entry to an <see cref="T:nexus.core.logging.ILog" /></summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogEntry.Data">
+      <summary>
+            A freeform list of objects that have been attached to this log message. It is up to attached <see cref="T:nexus.core.logging.ILogSink" /> to
+            make use of these attached values.
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogEntry.DebugMessage">
+      <summary>
+            The unformatted log message.
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogEntry.SequenceId">
+      <summary>
+            The number of this log entry within its parent log
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogEntry.Severity">
+      <summary>
+            The severity of this log entry
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.ILogEntry.Timestamp">
+      <summary>
+            The time, in UTC, when this log entry was created
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.ILogSink">
+      <summary>
+            Instances of <see cref="T:nexus.core.logging.ILogSink" /> can be registered to a log with <see cref="M:nexus.core.logging.ILogControl.AddSink(nexus.core.logging.ILogSink)" />, after which
+            the sink will receive every entry that passes the log's log level.
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.ILogSink.Handle(nexus.core.logging.ILogEntry[])">
+      <summary>
+            This sink will handle the given <see cref="T:nexus.core.logging.ILogEntry" /> however it sees fit
+            </summary>
+      <param name="entries">The current log entry</param>
+    </member>
+    <member name="T:nexus.core.logging.Log">
+      <summary>
+            Static global <see cref="T:nexus.core.logging.ILog" /> backed by <see cref="T:nexus.core.logging.SystemLog" /></summary>
+    </member>
+    <member name="P:nexus.core.logging.Log.CurrentLevel">
+      <summary>
+            The current log level, read-only.
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Debug(System.Object[])">
+      <summary>
+            Write a <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log entry only when compiling with the DEBUG flag
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Debug(System.String,System.Object[])">
+      <summary>
+            Write a <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log entry only when compiling with the DEBUG flag
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Debug(System.Object[],System.String,System.Object[])">
+      <summary>
+            Write a <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log entry only when compiling with the DEBUG flag
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Debug(System.Exception,System.String,System.Object[])">
+      <summary>
+            Write a <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log entry only when compiling with the DEBUG flag
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Error(System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Error" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Error(System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Error" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Error(System.Object[],System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Error" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Error(System.Exception,System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Error" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Info(System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Info" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Info(System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Info" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Info(System.Object[],System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Info" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Info(System.Exception,System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Info" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Trace(System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Trace(System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Trace(System.Object[],System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Trace(System.Exception,System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Trace" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Warn(System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Warn" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Warn(System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Warn" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Warn(System.Object[],System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Warn" /> level log data
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.Log.Warn(System.Exception,System.String,System.Object[])">
+      <summary>
+            Write <see cref="F:nexus.core.logging.LogLevel.Warn" /> level log data
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.LogLevel">
+      <summary>
+            Defines available log levels (or categories) used to provide additional context and to organize and filter your
+            logging output.
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.LogLevel.Trace">
+      <summary>
+        <see cref="T:nexus.core.logging.LogLevel" /> of <see cref="F:nexus.core.logging.LogLevel.Trace" /> is by far the most commonly used severity and should provide context to
+            understand the flow of the application and the steps leading up to errors and warnings. These messages should be useful
+            in debugging the application in both development and in troubleshooting customer-reported issues in production. The
+            value, location, and number of Trace statements will change over time the application evolves (eg, it is often helpful
+            early in an application's life to log user input such as changing displays or tabs).
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.LogLevel.Info">
+      <summary>
+        <see cref="T:nexus.core.logging.LogLevel" /> of <see cref="F:nexus.core.logging.LogLevel.Info" /> indicates important information that should be logged under normal
+            conditions such as state changes to your application, successful initialization, services starting and stopping, or
+            successful completion of significant transactions. Viewing a log showing Info entries and above should give a quick
+            overview of major state changes in the process providing top-level context for understanding any warnings or errors
+            that also occur.
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.LogLevel.Warn">
+      <summary>
+        <see cref="T:nexus.core.logging.LogLevel" /> of <see cref="F:nexus.core.logging.LogLevel.Warn" /> indicates a potential cause of concern. For example, expected transient
+            environmental conditions such as the loss of network or loss database connectivity, missing secondary data, switching
+            from a primary to backup server, should be logged as Warn, not Error. Viewing a log filtered to show only Warn and
+            Error entries may give quick insight into early hints at the root cause of a subsequent error. Warn should be used
+            sparingly so that such entries don't become meaningless. For example, loss of network access should be a Warn, or
+            possibly and Error, in a server application, but might be simply an Info in a desktop or mobile app.
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.LogLevel.Error">
+      <summary>
+        <see cref="T:nexus.core.logging.LogLevel" /> of <see cref="F:nexus.core.logging.LogLevel.Error" /> indicates a problem that needs to be investigated. Developers should be
+            notified automatically, but don't need to be dragged out of bed. By filtering a log to look at Error entries and above
+            you get an overview of error frequency and can quickly identify the initiating failure that might have resulted in a
+            cascade of additional errors. Tracking error rates versus application usage can yield useful quality metrics such as
+            MTBF which can be used to assess overall quality. For example, this metric might help inform decisions about whether or
+            not another beta testing cycle is needed before a release.
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.LogExtensions">
+      <summary>
+            Utility methods for <see cref="T:nexus.core.logging.ILog" />, <see cref="T:nexus.core.logging.ILogControl" />, and <see cref="T:nexus.core.logging.ILogEntry" /></summary>
+    </member>
+    <member name="T:nexus.core.logging.LogExtensions.TimestampFormatType">
+      <summary>
+            The format to use for time stamps
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.LogExtensions.TimestampFormatType.UnixTimeInMs">
+      <summary>
+            Output a long numeric value representing time since epoch
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.LogExtensions.TimestampFormatType.Iso8601">
+      <summary>
+            Output ISO8601 format
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.LogExtensions.AddConverter(nexus.core.logging.ILogControl,System.Func{System.Object,System.Object},System.Func{System.Type,System.Boolean})">
+      <inheritdoc cref="M:nexus.core.logging.ILogControl.AddConverter(nexus.core.IObjectConverter)" />
+      <requires exception="T:System.ArgumentNullException" csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+      <exception cref="T:System.ArgumentNullException"> log == null </exception>
+      <requires exception="T:System.ArgumentNullException" csharp="convert != null" vb="convert &lt;&gt; Nothing">convert != null</requires>
+      <exception cref="T:System.ArgumentNullException"> convert == null </exception>
+      <requires exception="T:System.ArgumentNullException" csharp="canConvert != null" vb="canConvert &lt;&gt; Nothing">canConvert != null</requires>
+      <exception cref="T:System.ArgumentNullException"> canConvert == null </exception>
+    </member>
+    <member name="M:nexus.core.logging.LogExtensions.AddConverter``2(nexus.core.logging.ILogControl,System.Func{``0,``1})">
+      <inheritdoc cref="M:nexus.core.logging.ILogControl.AddConverter(nexus.core.IObjectConverter)" />
+      <requires exception="T:System.ArgumentNullException" csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+      <exception cref="T:System.ArgumentNullException"> log == null </exception>
+      <requires exception="T:System.ArgumentNullException" csharp="convert != null" vb="convert &lt;&gt; Nothing">convert != null</requires>
+      <exception cref="T:System.ArgumentNullException"> convert == null </exception>
+    </member>
+    <member name="M:nexus.core.logging.LogExtensions.AddConverter``2(nexus.core.logging.ILogControl,nexus.core.IObjectConverter{``0,``1})">
+      <inheritdoc cref="M:nexus.core.logging.ILogControl.AddConverter(nexus.core.IObjectConverter)" />
+      <requires exception="T:System.ArgumentNullException" csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+      <exception cref="T:System.ArgumentNullException"> log == null </exception>
+      <requires exception="T:System.ArgumentNullException" csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> converter == null </exception>
+    </member>
+    <member name="M:nexus.core.logging.LogExtensions.AddSink(nexus.core.logging.ILogControl,System.Action{nexus.core.logging.ILogEntry})">
+      <inheritdoc cref="M:nexus.core.logging.ILogControl.AddSink(nexus.core.logging.ILogSink)" />
+      <requires exception="T:System.ArgumentNullException" csharp="log != null" vb="log &lt;&gt; Nothing">log != null</requires>
+      <exception cref="T:System.ArgumentNullException"> log == null </exception>
+      <requires exception="T:System.ArgumentNullException" csharp="handler != null" vb="handler &lt;&gt; Nothing">handler != null</requires>
+      <exception cref="T:System.ArgumentNullException"> handler == null </exception>
+      <requires exception="T:System.ArgumentNullException" csharp="handler != null" vb="handler &lt;&gt; Nothing">handler != null</requires>
+      <exception cref="T:System.ArgumentNullException"> handler == null </exception>
+    </member>
+    <member name="M:nexus.core.logging.LogExtensions.FormatAsString(nexus.core.logging.ILogEntry,nexus.core.logging.LogExtensions.TimestampFormatType,System.Boolean)">
+      <summary>
+            Format the log entry as a string: "<see cref="P:nexus.core.logging.ILogEntry.Timestamp" /> [<see cref="P:nexus.core.logging.ILogEntry.Severity" />]
+            <see cref="P:nexus.core.logging.ILogEntry.DebugMessage" /><see cref="P:nexus.core.logging.ILogEntry.Data" />"
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.LogExtensions.GetData``1(nexus.core.logging.ILogEntry)">
+      <summary>
+            Utility method to return the first object from <paramref name="entry" /> (<see cref="P:nexus.core.logging.ILogEntry.Data" />) of the given
+            type. The first object
+            of the given type will be returned; if you expect multiple objects of the same type, iterate over the entry's data
+            yourself.
+            </summary>
+    </member>
+    <member name="T:nexus.core.logging.SystemLog">
+      <summary>
+            The default/standard implementation of <see cref="T:nexus.core.logging.ILog" /> and <see cref="T:nexus.core.logging.ILogControl" />. If the current
+            <see cref="P:nexus.core.logging.SystemLog.CurrentLevel" /> is lower than the called log method then the log call will be counted but no output sent to
+            the sinks.
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.SystemLog.m_converters">
+      <summary>
+            When objects are provided to the log they will be run through all these converters
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.SystemLog.m_entriesSkipped">
+      <summary>
+            Keep track of log entries that have been dropped because the log level was higher than the entry
+            </summary>
+    </member>
+    <member name="F:nexus.core.logging.SystemLog.m_entriesWritten">
+      <summary>
+            The number of entries that have been written for each <see cref="T:nexus.core.logging.LogLevel" /></summary>
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.#ctor(nexus.core.time.ITimeProvider,System.Byte,System.Boolean)">
+      <summary>
+            Create a new system log with the provided configuration. You should not instantiate this, see: <see cref="P:nexus.core.logging.SystemLog.Instance" /></summary>
+      <param name="time" />
+      <param name="logBufferSize">
+            The size of the rolling buffer used to store log entries so newly attached sinks don't lose any entries made before
+            they were attached. This is only really necessary at start/launch time so unless you are expecting a lot of logging
+            prior to attaching your sinks he default value is probably fine.
+            </param>
+      <param name="rethrowExceptionsFromSinks">
+            Defaults to false, but when true any exceptions thrown by attached
+            <see cref="T:nexus.core.logging.ILogSink" /> will not be caught. Really only useful for debugging.
+            </param>
+      <requires exception="T:System.ArgumentNullException" csharp="time != null" vb="time &lt;&gt; Nothing">time != null</requires>
+      <exception cref="T:System.ArgumentNullException"> time == null </exception>
+    </member>
+    <member name="P:nexus.core.logging.SystemLog.CurrentLevel">
+      <summary>
+            The level of log entires to write. Only entries of this level and above will be written to the log, others will be
+            silently dropped.
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.SystemLog.DebugMessageFormatProvider">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.logging.SystemLog.Instance">
+      <summary>
+            You should only access this in the main entry-point of your application code and **never** from libraries or normal app
+            code.
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.SystemLog.LogBufferSize">
+      <summary>
+            Mostly just needed for unit tests
+            </summary>
+    </member>
+    <member name="P:nexus.core.logging.SystemLog.ObjectConverters">
+      <inheritDoc cref="P:nexus.core.logging.ILogControl.ObjectConverters" />
+    </member>
+    <member name="P:nexus.core.logging.SystemLog.Sinks">
+      <inheritDoc cref="P:nexus.core.logging.ILogControl.Sinks" />
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.AddConverter(nexus.core.IObjectConverter)">
+      <inheritDoc cref="M:nexus.core.logging.ILogControl.AddConverter(nexus.core.IObjectConverter)" />
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.AddSink(nexus.core.logging.ILogSink)">
+      <inheritDoc cref="M:nexus.core.logging.ILogControl.AddSink(nexus.core.logging.ILogSink)" />
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.GetNumberEntriesSkipped(nexus.core.logging.LogLevel[])">
+      <summary>
+            Returns the number of entries of the given <see cref="T:nexus.core.logging.LogLevel" />s that have been discarded due to
+            <see cref="P:nexus.core.logging.SystemLog.CurrentLevel" />.
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.GetNumberEntriesWritten(nexus.core.logging.LogLevel[])">
+      <summary>
+            Returns the number of entries of the given <see cref="T:nexus.core.logging.LogLevel" />s that have been written to the log thus far.
+            </summary>
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.RemoveConverter(nexus.core.IObjectConverter)">
+      <inheritDoc cref="M:nexus.core.logging.ILogControl.RemoveConverter(nexus.core.IObjectConverter)" />
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.RemoveSink(nexus.core.logging.ILogSink)">
+      <inheritDoc cref="M:nexus.core.logging.ILogControl.RemoveSink(nexus.core.logging.ILogSink)" />
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.RemoveSinkOfType``1">
+      <inheritDoc cref="M:nexus.core.logging.ILogControl.RemoveSink(nexus.core.logging.ILogSink)" />
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.Write(nexus.core.logging.LogLevel,System.String,System.Object[])">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.Write(nexus.core.logging.LogLevel,System.Object[])">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.logging.SystemLog.Write(nexus.core.logging.LogLevel,System.Object[],System.String,System.Object[])">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.ObjectConverter">
+      <summary>
+            Create <see cref="T:nexus.core.IObjectConverter`2" /></summary>
+    </member>
+    <member name="M:nexus.core.ObjectConverter.AsTyped``2(nexus.core.IGenericObjectConverter{``1})">
+      <summary>
+            Convert a generic <see cref="T:nexus.core.IGenericObjectConverter`1" /> to a strongly typed
+            <see cref="T:nexus.core.IObjectConverter`2" />
+            that can only convert from one specific type (<typeparamref name="TSource" />).
+            </summary>
+      <requires csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+    </member>
+    <member name="M:nexus.core.ObjectConverter.AsUntyped``2(nexus.core.IObjectConverter{``0,``1})">
+      <summary>
+            Return an <see cref="T:nexus.core.IObjectConverter" /> is not a generic interface and can be used in collections or other places a
+            generic interface causes problems.
+            </summary>
+      <requires csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+      <requires exception="T:System.ArgumentNullException" csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> converter == null </exception>
+    </member>
+    <member name="M:nexus.core.ObjectConverter.Create``2(System.Func{``0,``1})">
+      <summary>
+            Create a new <see cref="T:nexus.core.IObjectConverter`2" /> from the provided conversion function.
+            </summary>
+      <requires csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+      <requires exception="T:System.ArgumentNullException" csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> converter == null </exception>
+    </member>
+    <member name="M:nexus.core.ObjectConverter.Create(System.Func{System.Object,System.Object},System.Func{System.Type,System.Boolean})">
+      <summary>
+            Create a new <see cref="T:nexus.core.IObjectConverter" /> from the provided conversion function.
+            </summary>
+      <requires csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+      <requires csharp="canConvert != null" vb="canConvert &lt;&gt; Nothing">canConvert != null</requires>
+      <requires exception="T:System.ArgumentNullException" csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> converter == null </exception>
+      <requires exception="T:System.ArgumentNullException" csharp="canConvert != null" vb="canConvert &lt;&gt; Nothing">canConvert != null</requires>
+      <exception cref="T:System.ArgumentNullException"> canConvert == null </exception>
+    </member>
+    <member name="T:nexus.core.ObjectConverter.GenericToTypedObjectConverterWrapper`2">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ObjectConverter.GenericToTypedObjectConverterWrapper`2.Convert(`0)">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.ObjectConverter.TypedToUntypedObjectConverterWrapper`2">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ObjectConverter.TypedToUntypedObjectConverterWrapper`2.CanConvertObjectOfType(System.Type)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ObjectConverter.TypedToUntypedObjectConverterWrapper`2.Convert(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.ObjectConverter.UntypedObjectConverter">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ObjectConverter.UntypedObjectConverter.CanConvertObjectOfType(System.Type)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ObjectConverter.UntypedObjectConverter.Convert(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.Observable`1">
+      <summary>
+            Simple implementation of <see cref="T:System.IObservable`1" /></summary>
+    </member>
+    <member name="M:nexus.core.Observable`1.#ctor">
+      <summary />
+    </member>
+    <member name="P:nexus.core.Observable`1.IsDisposed">
+      <summary>
+        <c>true</c> if this observable has been disposed and can no longer be used or a <see cref="T:System.ObjectDisposedException" />
+            will be thrown
+            </summary>
+    </member>
+    <member name="M:nexus.core.Observable`1.Dispose">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Observable`1.Error(System.Exception)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Observable`1.Subscribe(System.IObserver{`0})">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Observable`1.Update(`0)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Observable`1.ThrowIfDisposed">
+      <summary>
+            Throw <see cref="T:System.ObjectDisposedException" /> if <see cref="P:nexus.core.Observable`1.IsDisposed" /> is <c>true</c></summary>
+    </member>
+    <member name="T:nexus.core.resharper.CanBeNullAttribute">
+      <summary>
+            Indicates that the value of the marked element could be <c>null</c> sometimes,
+            so the check for <c>null</c> is necessary before its usage.
+            </summary>
+      <example>
+        <code>
+            [CanBeNull] object Test() =&gt; null;
+            
+            void UseTest() {
+              var p = Test();
+              var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:nexus.core.resharper.ContractAnnotationAttribute">
+      <summary>
+            Describes dependency between method input and output.
+            </summary>
+      <syntax>
+        <p>Function Definition Table syntax:</p>
+        <list>
+          <item>FDT      ::= FDTRow [;FDTRow]*</item>
+          <item>FDTRow   ::= Input =&gt; Output | Output &lt;= Input</item>
+          <item>Input    ::= ParameterName: Value [, Input]*</item>
+          <item>Output   ::= [ParameterName: Value]* {halt|stop|void|nothing|Value}</item>
+          <item>Value    ::= true | false | null | notnull | canbenull</item>
+        </list>
+            If method has single input parameter, its name could be omitted.<br />
+            Using <c>halt</c> (or <c>void</c>/<c>nothing</c>, which is the same) for method output
+            means that the methos doesn't return normally (throws or terminates the process).<br />
+            Value <c>canbenull</c> is only applicable for output parameters.<br />
+            You can use multiple <c>[ContractAnnotation]</c> for each FDT row, or use single attribute
+            with rows separated by semicolon. There is no notion of order rows, all rows are checked
+            for applicability and applied per each program state tracked by R# analysis.<br /></syntax>
+      <examples>
+        <list>
+          <item>
+            <code>
+            [ContractAnnotation("=&gt; halt")]
+            public void TerminationMethod()
+            </code>
+          </item>
+          <item>
+            <code>
+            [ContractAnnotation("halt &lt;= condition: false")]
+            public void Assert(bool condition, string text) // regular assertion method
+            </code>
+          </item>
+          <item>
+            <code>
+            [ContractAnnotation("s:null =&gt; true")]
+            public bool IsNullOrEmpty(string s) // string.IsNullOrEmpty()
+            </code>
+          </item>
+          <item>
+            <code>
+            // A method that returns null if the parameter is null,
+            // and not null if the parameter is not null
+            [ContractAnnotation("null =&gt; null; notnull =&gt; notnull")]
+            public object Transform(object data) 
+            </code>
+          </item>
+          <item>
+            <code>
+            [ContractAnnotation("=&gt; true, result: notnull; =&gt; false, result: null")]
+            public bool TryParse(string s, out Person result)
+            </code>
+          </item>
+        </list>
+      </examples>
+    </member>
+    <member name="T:nexus.core.resharper.ItemCanBeNullAttribute">
+      <summary>
+            Can be appplied to symbols of types derived from IEnumerable as well as to symbols of Task
+            and Lazy classes to indicate that the value of a collection item, of the Task.Result property
+            or of the Lazy.Value property can be null.
+            </summary>
+    </member>
+    <member name="T:nexus.core.resharper.ItemNotNullAttribute">
+      <summary>
+            Can be appplied to symbols of types derived from IEnumerable as well as to symbols of Task
+            and Lazy classes to indicate that the value of a collection item, of the Task.Result property
+            or of the Lazy.Value property can never be null.
+            </summary>
+    </member>
+    <member name="T:nexus.core.resharper.NotNullAttribute">
+      <summary>
+            Indicates that the value of the marked element could never be <c>null</c>.
+            </summary>
+      <example>
+        <code>
+            [NotNull] object Foo() {
+              return null; // Warning: Possible 'null' assignment
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:nexus.core.resharper.PureAttribute">
+      <summary>
+            Indicates that a method does not make any observable state changes.
+            The same as <c>System.Diagnostics.Contracts.PureAttribute</c></summary>
+      <example>
+        <code>
+            [Pure] private int Multiply(int x, int y) { return x * y; }
+            public void Foo() {
+              const int a = 2, b = 2;
+              Multiply(a, b); // Waring: Return value of pure method is not used
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:nexus.core.resharper.StringFormatMethodAttribute">
+      <summary>
+            Indicates that the marked method builds string by format pattern and (optional) arguments.
+            Parameter, which contains format string, should be given in constructor. The format string
+            should be in <see cref="M:System.String.Format(System.IFormatProvider,System.String,System.Object[])" />-like form
+            </summary>
+      <example>
+        <code>
+            [StringFormatMethod("message")]
+            public void ShowError(string message, params object[] args) { /* do something */ }
+            public void Foo() {
+              ShowError("Failed: {0}"); // Warning: Non-existing argument in format string
+            }
+            </code>
+      </example>
+    </member>
+    <member name="M:nexus.core.resharper.StringFormatMethodAttribute.#ctor(System.String)">
+      <param name="formatParameterName">
+            Specifies which parameter of an annotated method should be treated as format-string
+            </param>
+    </member>
+    <member name="P:nexus.core.resharper.StringFormatMethodAttribute.FormatParameterName">
+      <summary>
+            Specifies which parameter of an annotated method should be treated as format-string
+            </summary>
+    </member>
+    <member name="T:nexus.core.Deserializer">
+      <summary>
+            Utility methods to create and convert <see cref="T:nexus.core.IDeserializer`1" /></summary>
+    </member>
+    <member name="M:nexus.core.Deserializer.AsConverter``2(nexus.core.IDeserializer{``0})">
+      <summary>
+            Convert a generic <see cref="T:nexus.core.IDeserializer`1" /> to a strongly typed
+            <see cref="T:nexus.core.IObjectConverter`2" />
+            that can only deserialize to one specific type (<typeparamref name="TResult" />).
+            </summary>
+    </member>
+    <member name="M:nexus.core.Deserializer.Create``1(System.Func{``0,System.Type,System.Object})">
+      <summary>
+            Create a new <see cref="T:nexus.core.IDeserializer`1" /> from the provided function. If you simple want to convert one
+            object to another, see <see cref="M:nexus.core.ObjectConverter.Create``2(System.Func{``0,``1})" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="deserialize != null" vb="deserialize &lt;&gt; Nothing">deserialize != null</requires>
+      <exception cref="T:System.ArgumentNullException"> deserialize == null </exception>
+    </member>
+    <member name="T:nexus.core.Deserializer.DeserializerToObjectConverterWrapper`2">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Deserializer.DeserializerToObjectConverterWrapper`2.Convert(`0)">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.Deserializer.GenericDeserializer`1">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Deserializer.GenericDeserializer`1.Deserialize``1(`0)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Deserializer.GenericDeserializer`1.Deserialize(`0,System.Type)">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.TaskConstants">
+      <summary>
+            Provides completed task constants.
+            </summary>
+    </member>
+    <member name="P:nexus.core.TaskConstants.Canceled">
+      <summary>
+            A Task where <see cref="P:System.Threading.Tasks.Task.IsCanceled" /> is true
+            </summary>
+    </member>
+    <member name="P:nexus.core.TaskConstants.PerpetuallyIncomplete">
+      <summary>
+            A <see cref="T:System.Threading.Tasks.Task" /> that will never complete.
+            </summary>
+    </member>
+    <member name="P:nexus.core.TaskConstants.ResultFalse">
+      <summary>
+            Task.FromResult( false )
+            </summary>
+    </member>
+    <member name="P:nexus.core.TaskConstants.ResultNegativeOne">
+      <summary>
+            Task.FromResult( -1 )
+            </summary>
+    </member>
+    <member name="P:nexus.core.TaskConstants.ResultTrue">
+      <summary>
+            Task.FromResult( true )
+            </summary>
+    </member>
+    <member name="P:nexus.core.TaskConstants.ResultZero">
+      <summary>
+            Task.FromResult( default(Int32) )
+            </summary>
+    </member>
+    <member name="T:nexus.core.CollectionExtensions">
+      <summary>
+            Extension methods for doing things with arrays, lists, and dictionaries
+            </summary>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Shuffle``1(System.Collections.Generic.IList{``0},System.Func{System.Int32,System.Int32})">
+      <param name="source">The list to shuffle in-place</param>
+      <param name="rand">Receives the max value and returns a random number less than that value</param>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Shuffle``1(``0[],System.Func{System.Int32,System.Int32})">
+      <param name="source">The array to shuffle in-place</param>
+      <param name="rand">Receives the max value and returns a random number less than that value</param>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.AddAll``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+      <summary>
+            Add all of the provided <paramref name="items" /> to the provided <paramref name="collection" />. If
+            <paramref name="collection" /> is a <see cref="T:System.Collections.Generic.List`1" /> then <see cref="M:System.Collections.Generic.List`1.AddRange(System.Collections.Generic.IEnumerable{`0})" /> will be called,
+            otherwise <paramref name="items" /> will be iterated over with a <c>foreach</c> and each item added individually to
+            <paramref name="collection" /></summary>
+      <requires csharp="collection != null" vb="collection &lt;&gt; Nothing">collection != null</requires>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Extract``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+      <summary>
+            Retrieve a value and remove it from the dictionary, the resulting option will be empty if the requested key did not
+            exist
+            </summary>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Get``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{``1})">
+      <summary>
+            Retrieve a value from the dictionary. If the given key does not exist, the default for the given type will be returned
+            or, if a function is provided, the return value of the function will be returned.
+            </summary>
+      <returns>
+            The value in the dictionary at the given key, the return value of the provided function, or the default for
+            the given type if no function is provided.
+            </returns>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Get``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+      <summary>
+            Retrieve a value from the dictionary. If the given key does not exist, the provided value will be returned.
+            </summary>
+      <returns>
+            The value in the dicitonary at the given key, or the provided value.
+            </returns>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.GetAs``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String,System.Func{``0})">
+      <summary>
+            Syntax sugar for retrieving a string value from a dictionary
+            </summary>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.GetAs``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String,``0)">
+      <summary>
+            Syntax sugar for retrieving a string value from a dictionary
+            </summary>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.GetAs``2(System.Collections.Generic.IDictionary{``0,System.Object},``0,System.Func{``1})">
+      <summary>
+            Gets the value at the given key and casts it to the provided type. If the value at the given key cannot be cast or is
+            the default for the given type (null for reference types) then the provided function will be executed and its value
+            returned instead.
+            </summary>
+      <typeparam name="TKey" />
+      <typeparam name="TOut" />
+      <param name="dict" />
+      <param name="key" />
+      <param name="defaultValue">
+            Function which returns the value to use in case the value in the dictionary is the deafult
+            value for the given type, or cannot be cast to the given type.
+            </param>
+      <exception cref="T:System.InvalidCastException">
+            If there is no default value provided and the value from the dictionary cannot
+            be cast to the provided type
+            </exception>
+      <returns />
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.GetPair``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+      <summary>
+            Retrieve a key value pair from the dictionary
+            </summary>
+      <requires csharp="dict != null" vb="dict &lt;&gt; Nothing">dict != null</requires>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Set``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.KeyValuePair{``0,``1})">
+      <summary>
+            Set the values of <paramref name="dict" /> using a key value pair <paramref name="item" /></summary>
+      <requires csharp="dict != null" vb="dict &lt;&gt; Nothing">dict != null</requires>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.SetAll``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+      <summary>
+            Set the values of <paramref name="dict" /> for each key value pair in <paramref name="items" /></summary>
+      <requires csharp="dict != null" vb="dict &lt;&gt; Nothing">dict != null</requires>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Shuffle``1(``0[],System.Random)">
+      <summary>
+            Randomize the elements of the array using the provided <paramref name="rand" /></summary>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Shuffle``1(``0[],System.Func{System.Double})">
+      <summary>
+            Randomize the elements of the array using the provided randomization function <paramref name="rand" /></summary>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Shuffle``1(System.Collections.Generic.IList{``0},System.Random)">
+      <summary>
+            Randomize the elements of the list using the provided <paramref name="rand" /></summary>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.Shuffle``1(System.Collections.Generic.IList{``0},System.Func{System.Double})">
+      <summary>
+            Randomize the elements of the list using the provided randomization function <paramref name="rand" /></summary>
+    </member>
+    <member name="M:nexus.core.CollectionExtensions.TryGet``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+      <summary>
+            Return an <see cref="T:nexus.core.Option" /> to distinguish between a key having an assigned value of null versus not being
+            assigned.
+            </summary>
+      <requires csharp="dict != null" vb="dict &lt;&gt; Nothing">dict != null</requires>
+    </member>
+    <member name="T:nexus.core.ComparableExtensions">
+      <summary>
+            Utility methods for objects implementing <see cref="T:System.IComparable`1" /></summary>
+    </member>
+    <member name="M:nexus.core.ComparableExtensions.Between``1(System.IComparable{``0},``0,``0)">
+      <summary>
+            Returns true if the value is in the given range (inclusive)
+            </summary>
+      <requires csharp="value != null" vb="value &lt;&gt; Nothing">value != null</requires>
+    </member>
+    <member name="M:nexus.core.ComparableExtensions.Within``1(System.IComparable{``0},``0,``0)">
+      <summary>
+            Returns true if the value is in the given range (exclusive)
+            </summary>
+      <requires csharp="value != null" vb="value &lt;&gt; Nothing">value != null</requires>
+    </member>
+    <member name="T:nexus.core.CoreUtils">
+      <summary>
+            Some basic utility functions
+            </summary>
+    </member>
+    <member name="M:nexus.core.CoreUtils.Into``1(``0,``0@)">
+      <summary>
+            Copy <paramref name="obj" /> into <paramref name="destination" /> and return <paramref name="obj" /> for easy chaining
+            </summary>
+    </member>
+    <member name="M:nexus.core.CoreUtils.IsNullableType(System.Type)">
+      <summary>
+            True if the given <paramref name="type" /> is <see cref="T:System.Nullable`1" /></summary>
+      <requires csharp="type != null" vb="type &lt;&gt; Nothing">type != null</requires>
+    </member>
+    <member name="M:nexus.core.CoreUtils.IsNullableType``1">
+      <summary>
+            True if the given type is <see cref="T:System.Nullable`1" /></summary>
+    </member>
+    <member name="M:nexus.core.CoreUtils.IsOptionType(System.Type)">
+      <summary>
+            True if the given <paramref name="type" /> is <see cref="T:nexus.core.Option`1" /></summary>
+      <requires csharp="type != null" vb="type &lt;&gt; Nothing">type != null</requires>
+    </member>
+    <member name="M:nexus.core.CoreUtils.IsOptionType``1">
+      <summary>
+            True if the given type is <see cref="T:nexus.core.Option`1" /></summary>
+    </member>
+    <member name="M:nexus.core.CoreUtils.Swap``1(``0@,``0@)">
+      <summary>
+            Swap the two provided object references
+            </summary>
+    </member>
+    <member name="M:nexus.core.CoreUtils.ThrowDivideByZeroException">
+      <summary>
+            Useful to generate an exception from library code to test exception handling
+            <code>return 100 / 0;</code></summary>
+    </member>
+    <member name="M:nexus.core.CoreUtils.ThrowException">
+      <summary>
+            Useful to generate an exception from library code to test exception handling
+            <code>throw new Exception("Manually thrown exception.");</code></summary>
+    </member>
+    <member name="M:nexus.core.CoreUtils.TryDispose(System.IDisposable)">
+      <summary>
+            Dispose of this object if it is not-null
+            </summary>
+    </member>
+    <member name="M:nexus.core.CoreUtils.TryDispose(System.Object)">
+      <summary>
+            Dispose of this object if it implements <see cref="T:System.IDisposable" /> and is not-null
+            </summary>
+    </member>
+    <member name="T:nexus.core.Deferred`1">
+      <summary>
+            Defer the act of obtaining a given value until it is requested by a getter. Basically a small wrapper which gives state
+            to <see cref="T:System.Func`1" /> by containing its return value upon first execution.
+            </summary>
+    </member>
+    <member name="M:nexus.core.Deferred`1.#ctor(`0)">
+      <summary>
+            Create an already-resolved deferred value
+            </summary>
+    </member>
+    <member name="M:nexus.core.Deferred`1.#ctor(System.Func{`0})">
+      <summary>
+            Create a new deferred from this provided function. The function will be called once upon the deferred being resolved
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="retrieve != null" vb="retrieve &lt;&gt; Nothing">retrieve != null</requires>
+      <exception cref="T:System.ArgumentNullException"> retrieve == null </exception>
+    </member>
+    <member name="P:nexus.core.Deferred`1.IsResolved">
+      <summary>
+            True if the deferred value has already been evaluated
+            </summary>
+    </member>
+    <member name="P:nexus.core.Deferred`1.Type">
+      <summary>
+            The type of value contained in this deferred
+            </summary>
+    </member>
+    <member name="P:nexus.core.Deferred`1.Value">
+      <summary>
+            Resolve the value of this deferred. If this is the first time the value has been resolved, any underlying code will be
+            executed now.
+            </summary>
+    </member>
+    <member name="M:nexus.core.Deferred`1.op_Implicit(System.Func{`0})~nexus.core.Deferred{`0}">
+      <summary>
+            Create a <see cref="T:nexus.core.Deferred`1" /> from a function <paramref name="retrievalFunc" /></summary>
+    </member>
+    <member name="M:nexus.core.Deferred`1.op_Implicit(`0)~nexus.core.Deferred{`0}">
+      <summary>
+            Create a <see cref="T:nexus.core.Deferred`1" /> from a <paramref name="resolvedValue" /></summary>
+    </member>
+    <member name="T:nexus.core.Deferred">
+      <summary>
+            Static utility methods for <see cref="T:nexus.core.Deferred`1" /></summary>
+    </member>
+    <member name="M:nexus.core.Deferred.FromResult``1(``0)">
+      <summary>
+            Create an already-resolved <see cref="T:nexus.core.Deferred`1" /> value
+            </summary>
+    </member>
+    <member name="M:nexus.core.Deferred.Of``1(System.Func{``0})">
+      <summary>
+            Create a new <see cref="T:nexus.core.Deferred`1" /> from this provided <paramref name="retrievalFunc" />. The function will be
+            called once upon the deferred being resolved.
+            </summary>
+    </member>
+    <member name="T:nexus.core.DeferredExtensions">
+      <summary>
+            Extension methods for <see cref="T:nexus.core.Deferred`1" /></summary>
+    </member>
+    <member name="M:nexus.core.DeferredExtensions.ToDeferred``1(System.Lazy{``0})">
+      <summary>
+            Create a <see cref="T:nexus.core.Deferred`1" /> from a  <see cref="T:System.Lazy`1" /></summary>
+    </member>
+    <member name="M:nexus.core.DeferredExtensions.ToLazy``1(nexus.core.Deferred{``0},System.Threading.LazyThreadSafetyMode)">
+      <summary>
+            Convert a <see cref="T:nexus.core.Deferred`1" /> to a <see cref="T:System.Lazy`1" /></summary>
+    </member>
+    <member name="T:nexus.core.DisposeAction">
+      <summary>
+            Create a <see cref="T:System.IDisposable" /> that will execute the provided action once when dispose is called. Subsequent calls
+            to <c>Dispose()</c> will do nothing
+            </summary>
+    </member>
+    <member name="F:nexus.core.DisposeAction.None">
+      <summary>
+            An empty <see cref="T:System.IDisposable" /></summary>
+    </member>
+    <member name="M:nexus.core.DisposeAction.#ctor(System.Action)">
+      <summary>
+            Create a <see cref="T:System.IDisposable" /> that will execute the provided action once when dispose is called. Subsequent calls
+            to <c>Dispose()</c> will do nothing
+            </summary>
+    </member>
+    <member name="P:nexus.core.DisposeAction.IsDisposed">
+      <summary>
+            True if <see cref="M:nexus.core.DisposeAction.Dispose" /> has been called
+            </summary>
+    </member>
+    <member name="M:nexus.core.DisposeAction.Dispose">
+      <inheritDoc />
+    </member>
+    <member name="T:nexus.core.ByteOrder">
+      <summary>
+            Enum to represent whether bytes are in little- or big- endian byte order
+            </summary>
+    </member>
+    <member name="F:nexus.core.ByteOrder.LittleEndian">
+      <summary>
+            The first byte (e.g. <c>[0]</c>) represents the least-significant byte
+            </summary>
+    </member>
+    <member name="F:nexus.core.ByteOrder.BigEndian">
+      <summary>
+            The first byte (e.g. <c>[0]</c>) represents the most-significant byte
+            </summary>
+    </member>
+    <member name="T:nexus.core.Enum`1">
+      <summary>
+            Utility methods to get data from and parse strings to enum values
+            </summary>
+    </member>
+    <member name="M:nexus.core.Enum`1.GetName(System.Object)">
+      <summary>
+            Converts the specified value of a specified enumerated type to its equivalent string representation according to the
+            specified format.
+            </summary>
+      <param name="value" />
+      <returns />
+      <summary>
+            Retrieves the name of the constant in the specified enumeration that has the specified value.
+            </summary>
+      <returns>
+            A string containing the name of the enumerated type whose value is <paramref name="value" />; or null if no such
+            constant is found.
+            </returns>
+    </member>
+    <member name="M:nexus.core.Enum`1.GetNames">
+      <summary>
+            Retrieves an array of the names of the constants in a specified enumeration.
+            </summary>
+      <returns>
+            A string array of the names of the constants in the enum.
+            </returns>
+    </member>
+    <member name="M:nexus.core.Enum`1.GetUnderlyingType">
+      <summary>
+            Returns the underlying type of the enumeration.
+            </summary>
+      <returns>
+            The underlying type of the enumeration.
+            </returns>
+    </member>
+    <member name="M:nexus.core.Enum`1.GetValues">
+      <inheritdoc cref="M:System.Enum.GetValues(System.Type)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.IsDefined(System.Object)">
+      <summary>
+            Returns an indication whether a constant with a specified value exists in a specified enumeration.
+            </summary>
+      <returns>
+            true if a constant in enum has a value equal to <paramref name="value" />; otherwise, false.
+            </returns>
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.String,System.Nullable{`0},System.Boolean,System.String)">
+      <summary>
+            Converts the string representation of the name or numeric value of one or
+            more enumerated constants to an equivalent enumerated object. A parameter
+            specifies whether the operation is case-sensitive.
+            </summary>
+      <param name="value">A string containing the name or value to convert.</param>
+      <param name="defaultValue">If the given value cannot be parsed the default value is returned</param>
+      <param name="ignoreCase">If true, ignore case; otherwise, regard case.</param>
+      <param name="ignoreCharacters">Ignore these characters in the string. Useful for hyphens and underscores (eg, "-_ ")</param>
+      <returns>An object of type T whose value is represented by value.</returns>
+      <exception cref="T:System.ArgumentNullException">
+            value is null.
+            </exception>
+      <exception cref="T:System.ArgumentException">
+            T is not of type Enum; or value is null, an empty string, contains only whitespace,
+            or is not one of the named values of the enumeration.
+            </exception>
+      <returns>An enum of type T whose value is represented by value.</returns>
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.Object)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.Byte)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.SByte)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.Int32)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.UInt32)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.Int64)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.UInt64)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.Int16)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="M:nexus.core.Enum`1.Parse(System.UInt16)">
+      <inheritdoc cref="M:System.Enum.ToObject(System.Type,System.Object)" />
+    </member>
+    <member name="T:nexus.core.EnumDescriptionAttribute">
+      <summary>
+            Used to give Enum values a detailed description
+            </summary>
+    </member>
+    <member name="M:nexus.core.EnumDescriptionAttribute.#ctor(System.String)">
+      <summary />
+      <param name="value" />
+    </member>
+    <member name="P:nexus.core.EnumDescriptionAttribute.StringValue">
+      <summary>
+            The description
+            </summary>
+    </member>
+    <member name="T:nexus.core.EnumDescriptionAttributeExtensions">
+      <summary>
+            Extension method to get <see cref="T:nexus.core.EnumDescriptionAttribute" /> from an Enum
+            </summary>
+    </member>
+    <member name="M:nexus.core.EnumDescriptionAttributeExtensions.GetEnumDescription(System.Enum,System.Boolean)">
+      <summary>
+            Retrieve the <see cref="T:nexus.core.EnumDescriptionAttribute" /> from this enum value
+            </summary>
+      <requires csharp="value != null" vb="value &lt;&gt; Nothing">value != null</requires>
+    </member>
+    <member name="T:nexus.core.exception.IException">
+      <summary>
+            Interface for Exceptions that isn't a sealed class tied to .Net
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IException.ClassName">
+      <summary>
+            The name of the class that originated this exception
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IException.InnerError">
+      <summary>
+            The inner exception, or <c>null</c></summary>
+    </member>
+    <member name="P:nexus.core.exception.IException.Message">
+      <summary>
+            The exception message
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IException.StackFrames">
+      <summary>
+            A detailed breakdown of the stack, if available. Typically only one of <see cref="P:nexus.core.exception.IException.StackFrames" /> or
+            <see cref="P:nexus.core.exception.IException.StackTrace" /> will be set.
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IException.StackTrace">
+      <summary>
+            A text representation of the stack frames. Typically only one of <see cref="P:nexus.core.exception.IException.StackFrames" /> or
+            <see cref="P:nexus.core.exception.IException.StackTrace" /> will be set.
+            </summary>
+            TODO: Remove the need for this and parse stacktrace strings on each platform
+        </member>
+    <member name="T:nexus.core.exception.IStackFrame">
+      <summary>
+            Interface to represent a stack frame in memory
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IStackFrame.AssemblyName">
+      <summary>
+            The name of the <see cref="T:System.Reflection.Assembly" /> the executing code is from
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IStackFrame.AssemblyVersion">
+      <summary>
+            The version of the <see cref="T:System.Reflection.Assembly" /> the executing code is from
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IStackFrame.ClassName">
+      <summary>
+            The class name the executing code is defined in
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IStackFrame.Column">
+      <summary>
+            The column in the source file the executing code is on
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IStackFrame.FileName">
+      <summary>
+            The name of the source file of the executing code
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IStackFrame.Line">
+      <summary>
+            The line in the source file the exeucting code is from
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IStackFrame.MethodName">
+      <summary>
+            The name of the method that is running
+            </summary>
+    </member>
+    <member name="P:nexus.core.exception.IStackFrame.Namespace">
+      <summary>
+            The namespace that contains the class and method of the executing code
+            </summary>
+    </member>
+    <member name="T:nexus.core.exception.StackFrameExtensions">
+      <summary>
+            Extension methods for <see cref="T:nexus.core.exception.IStackFrame" /></summary>
+    </member>
+    <member name="M:nexus.core.exception.StackFrameExtensions.AssemblyQualifiedName(nexus.core.exception.IStackFrame)">
+      <summary>
+            Return the full namespace, class name, and assembly info of this stack frame
+            </summary>
+    </member>
+    <member name="M:nexus.core.exception.StackFrameExtensions.NamespaceQualifiedName(nexus.core.exception.IStackFrame)">
+      <summary>
+            Return the full namespace and class name of this stack frame
+            </summary>
+    </member>
+    <member name="T:nexus.core.exception.NativeExceptionConverter">
+      <summary>
+            Serialize an <see cref="T:System.Exception" /> to <see cref="T:nexus.core.exception.IException" /> with a textual (ie, untyped) stacktrace
+            </summary>
+    </member>
+    <member name="F:nexus.core.exception.NativeExceptionConverter.Instance">
+      <summary>
+            Singleton instance of <see cref="T:nexus.core.exception.NativeExceptionConverter" /></summary>
+    </member>
+    <member name="M:nexus.core.exception.NativeExceptionConverter.Convert(System.Exception)">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.exception.UniversalException">
+      <summary>
+            An imeplmentation of <see cref="T:nexus.core.exception.IException" /> that works across all supported platforms
+            </summary>
+    </member>
+    <member name="M:nexus.core.exception.UniversalException.#ctor(System.String,System.String,nexus.core.exception.IException,System.Collections.Generic.IEnumerable{nexus.core.exception.IStackFrame},System.String)">
+      <summary />
+    </member>
+    <member name="P:nexus.core.exception.UniversalException.ClassName">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalException.InnerError">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalException.Message">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalException.StackFrames">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalException.StackTrace">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.exception.UniversalException.ToString">
+      <summary>
+            Output the exception and complete stack trace
+            </summary>
+    </member>
+    <member name="T:nexus.core.exception.UniversalExceptionStackFrame">
+      <summary>
+            A standardized stack frame structure that can be used on any platform
+            </summary>
+    </member>
+    <member name="M:nexus.core.exception.UniversalExceptionStackFrame.#ctor(System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+      <summary />
+    </member>
+    <member name="P:nexus.core.exception.UniversalExceptionStackFrame.AssemblyName">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalExceptionStackFrame.AssemblyVersion">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalExceptionStackFrame.ClassName">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalExceptionStackFrame.Column">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalExceptionStackFrame.FileName">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalExceptionStackFrame.Line">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalExceptionStackFrame.MethodName">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.exception.UniversalExceptionStackFrame.Namespace">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.exception.UniversalExceptionStackFrame.ToString">
+      <inheritdoc cref="M:System.Object.ToString" />
+    </member>
+    <member name="T:nexus.core.Expected`1">
+      <summary>
+            Represents an expected value or an exception if the value is not present
+            </summary>
+      <invariant> HasValue || Error != null </invariant>
+      <invariant> !(HasValue &amp;&amp; Error != null) </invariant>
+    </member>
+    <member name="M:nexus.core.Expected`1.#ctor(`0)">
+      <summary>
+            Create an expected with a valid value
+            </summary>
+    </member>
+    <member name="M:nexus.core.Expected`1.#ctor(System.Exception)">
+      <summary>
+            Create an expected with an exception
+            </summary>
+      <requires csharp="error != null" vb="error &lt;&gt; Nothing">error != null</requires>
+    </member>
+    <member name="P:nexus.core.Expected`1.Error">
+      <summary>
+            The exception if this expected does not have a value
+            </summary>
+    </member>
+    <member name="P:nexus.core.Expected`1.HasValue">
+      <summary>
+        <c>true</c> if this expected has a value instead of an error
+            </summary>
+    </member>
+    <member name="P:nexus.core.Expected`1.Value">
+      <summary>
+            The value of this expected, or throws <see cref="T:System.InvalidOperationException" /> if this expected does not have a value.
+            See <see cref="P:nexus.core.Expected`1.HasValue" /></summary>
+      <exception cref="T:System.InvalidOperationException">If <see cref="P:nexus.core.Expected`1.HasValue" /> is <c>false</c></exception>
+    </member>
+    <member name="M:nexus.core.Expected`1.op_Implicit(System.Exception)~nexus.core.Expected{`0}">
+      <summary>
+            Create a <see cref="T:nexus.core.Expected`1" /> from an exception
+            </summary>
+    </member>
+    <member name="M:nexus.core.Expected`1.op_Implicit(`0)~nexus.core.Expected{`0}">
+      <summary>
+            Create a <see cref="T:nexus.core.Expected`1" /> from a <paramref name="expectedValue" /></summary>
+    </member>
+    <member name="T:nexus.core.Expected">
+      <summary>
+            Static utility methods for <see cref="T:nexus.core.Expected`1" /></summary>
+    </member>
+    <member name="M:nexus.core.Expected.No``1(System.Exception)">
+      <summary>
+            Create a new failed expected value with the given exception
+            </summary>
+    </member>
+    <member name="M:nexus.core.Expected.Of``1(``0)">
+      <summary>
+            Create a new valid expected of the given value
+            </summary>
+    </member>
+    <member name="M:nexus.core.Expected.Of``1(nexus.core.Option{``0},nexus.core.Deferred{System.Exception})">
+      <summary>
+            Create a new expected value from the given option, or <paramref name="exception" /> if <paramref name="option" /> has
+            no value
+            </summary>
+    </member>
+    <member name="M:nexus.core.Expected.Of``1(nexus.core.Option{``0},System.Lazy{System.Exception})">
+      <summary>
+            Create a new expected value from the given option, or <paramref name="exception" /> if <paramref name="option" /> has
+            no value
+            </summary>
+    </member>
+    <member name="M:nexus.core.Expected.Of``1(nexus.core.Option{``0},System.Exception)">
+      <summary>
+            Create a new expected value from the given option, or <paramref name="exception" /> if <paramref name="option" /> has
+            no value
+            </summary>
+    </member>
+    <member name="T:nexus.core.IImmutableDictionary`2">
+      <summary>
+            An immutable data structure with <see cref="T:System.Collections.Generic.IDictionary`2" />-like semantics
+            </summary>
+    </member>
+    <member name="P:nexus.core.IImmutableDictionary`2.Item(`0)">
+      <summary>
+            Retrienve the given key value
+            </summary>
+    </member>
+    <member name="P:nexus.core.IImmutableDictionary`2.Count">
+      <summary>
+            The number of items in this dictionary
+            </summary>
+    </member>
+    <member name="P:nexus.core.IImmutableDictionary`2.Keys">
+      <summary>
+            All the keys in this dictionary
+            </summary>
+    </member>
+    <member name="P:nexus.core.IImmutableDictionary`2.Values">
+      <summary>
+            All the values in this dictionary
+            </summary>
+    </member>
+    <member name="M:nexus.core.IImmutableDictionary`2.ContainsKey(`0)">
+      <summary>
+        <c>true</c> if this dictionary contains the given key
+            </summary>
+      <param name="key" />
+      <returns />
+    </member>
+    <member name="M:nexus.core.IImmutableDictionary`2.Get(`0)">
+      <summary>
+            Retrieve the given key value or <see cref="F:nexus.core.Option`1.NoValue" /></summary>
+    </member>
+    <member name="T:nexus.core.ImmutableDictionary`2">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ImmutableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+      <summary />
+      <param name="source">
+            The underlying source for the immutable dictionary. Technically allowing you to make it mutable,
+            but don't do that.
+            </param>
+    </member>
+    <member name="P:nexus.core.ImmutableDictionary`2.Item(`0)">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.ImmutableDictionary`2.Count">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.ImmutableDictionary`2.Keys">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.ImmutableDictionary`2.Values">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ImmutableDictionary`2.ContainsKey(`0)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ImmutableDictionary`2.Get(`0)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ImmutableDictionary`2.GetEnumerator">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.ImmutableDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.ImmutableDictionaryExtensions">
+      <summary>
+            Extension methods for <see cref="T:nexus.core.IImmutableDictionary`2" /></summary>
+    </member>
+    <member name="M:nexus.core.ImmutableDictionaryExtensions.GetPair``2(nexus.core.IImmutableDictionary{``0,``1},``0)">
+      <summary>
+            Retrieve a key value pair from the dictionary
+            </summary>
+      <requires csharp="dict != null" vb="dict &lt;&gt; Nothing">dict != null</requires>
+    </member>
+    <member name="M:nexus.core.ImmutableDictionaryExtensions.ToImmutable``2(System.Collections.Generic.IDictionary{``0,``1})">
+      <summary>
+            Makethe given dictionary immutable
+            </summary>
+    </member>
+    <member name="T:nexus.core.MutableDictionary`2">
+      <summary>
+            A paradoxical bridge class that implements both <see cref="T:System.Collections.Generic.IDictionary`2" /> and
+            <see cref="T:nexus.core.IImmutableDictionary`2" /></summary>
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+      <summary />
+    </member>
+    <member name="P:nexus.core.MutableDictionary`2.Item(`0)">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.MutableDictionary`2.Count">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.MutableDictionary`2.IsReadOnly">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.MutableDictionary`2.Keys">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.MutableDictionary`2.Values">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.Add(`0,`1)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.Clear">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.Get(`0)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.GetEnumerator">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.Remove(`0)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.TryGetValue(`0,`1@)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.MutableDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.Observer">
+      <summary>
+            Utility methods to create <see cref="T:System.IObserver`1" /></summary>
+    </member>
+    <member name="M:nexus.core.Observer.Create``1(System.Action{``0},System.Action,System.Action{System.Exception})">
+      <summary>
+            Create a new observer using the provided methods to implement <see cref="T:System.IObserver`1" /></summary>
+    </member>
+    <member name="M:nexus.core.Observer.Subscribe``1(System.IObservable{``0},System.Action{``0},System.Action,System.Action{System.Exception})">
+      <summary>
+            Subscribe to this <paramref name="observable" /> using the provided methods to create a new <see cref="T:System.IObserver`1" /></summary>
+      <requires csharp="observable != null" vb="observable &lt;&gt; Nothing">observable != null</requires>
+    </member>
+    <member name="M:nexus.core.Observer.SubscribeOnComplete``1(System.IObservable{``0},System.Action)">
+      <summary>
+            Subscribe to this <paramref name="observable" /> creating a new <see cref="T:System.IObserver`1" /> with only
+            <see cref="M:System.IObserver`1.OnCompleted" /> implemented
+            </summary>
+      <requires csharp="observable != null" vb="observable &lt;&gt; Nothing">observable != null</requires>
+    </member>
+    <member name="M:nexus.core.Observer.SubscribeOnError``1(System.IObservable{``0},System.Action{System.Exception})">
+      <summary>
+            Subscribe to this <paramref name="observable" /> creating a new <see cref="T:System.IObserver`1" /> with only
+            <see cref="M:System.IObserver`1.OnError(System.Exception)" /> implemented
+            </summary>
+      <requires csharp="observable != null" vb="observable &lt;&gt; Nothing">observable != null</requires>
+    </member>
+    <member name="M:nexus.core.Observer.SubscribeOnNext``1(System.IObservable{``0},System.Action{``0})">
+      <summary>
+            Subscribe to this <paramref name="observable" /> creating a new <see cref="T:System.IObserver`1" /> with only
+            <see cref="M:System.IObserver`1.OnNext(`0)" /> implemented
+            </summary>
+      <requires csharp="observable != null" vb="observable &lt;&gt; Nothing">observable != null</requires>
+    </member>
+    <member name="T:nexus.core.Option`1">
+      <summary>
+            A non-nullable type representing an optional value. If C# didn't fuck up and confuse nullability and value types this
+            wouldn't be necessary, sigh.
+            </summary>
+      <typeparam name="T" />
+    </member>
+    <member name="F:nexus.core.Option`1.NoValue">
+      <summary>
+        <c>default(Option&lt;T&gt;)</c>
+      </summary>
+    </member>
+    <member name="M:nexus.core.Option`1.#ctor(`0)">
+      <summary>
+            Construct an option that will have the provided value
+            </summary>
+    </member>
+    <member name="P:nexus.core.Option`1.HasValue">
+      <summary>
+        <c>true</c> if this option type contains a value.
+            </summary>
+    </member>
+    <member name="P:nexus.core.Option`1.Value">
+      <summary>
+            The resolved value of this option type, or throws <see cref="T:System.InvalidOperationException" /> if <see cref="P:nexus.core.Option`1.HasValue" />
+            is
+            <c>false</c></summary>
+      <exception cref="T:System.InvalidOperationException">If access is attempted when <see cref="P:nexus.core.Option`1.HasValue" /> is false.</exception>
+    </member>
+    <member name="M:nexus.core.Option`1.Equals(System.Object)">
+      <inheritdoc />
+      <pure />
+    </member>
+    <member name="M:nexus.core.Option`1.Equals(`0)">
+      <inheritdoc />
+      <pure />
+    </member>
+    <member name="M:nexus.core.Option`1.Equals(nexus.core.Option{`0})">
+      <inheritdoc />
+      <pure />
+    </member>
+    <member name="M:nexus.core.Option`1.GetHashCode">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Option`1.ToString">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.Option`1.op_Implicit(`0)~nexus.core.Option{`0}">
+      <summary>
+            Implicitly wrap any <typeparamref name="T" /> to an <see cref="T:nexus.core.Option`1" /></summary>
+    </member>
+    <member name="T:nexus.core.Option">
+      <summary>
+            Create new <see cref="T:nexus.core.Option`1" /> values
+            </summary>
+    </member>
+    <member name="F:nexus.core.Option.NoValue">
+      <summary>
+        <c>default(Option&lt;Object&gt;)</c>
+      </summary>
+    </member>
+    <member name="M:nexus.core.Option.Of``1(``0)">
+      <summary>
+            Create a new <see cref="T:nexus.core.Option`1" /> from the provided <paramref name="value" /></summary>
+      <typeparam name="T">The type pf the resultign <see cref="T:nexus.core.Option`1" /></typeparam>
+      <param name="value">The value to wrap in an option type</param>
+    </member>
+    <member name="M:nexus.core.Option.Or``1(nexus.core.Option{``0},``0)">
+      <summary>
+            If <see cref="P:nexus.core.Option`1.HasValue" /> is <c>true</c>, returns <see cref="P:nexus.core.Option`1.Value" />, else returns
+            <paramref name="alternateValue" /></summary>
+    </member>
+    <member name="M:nexus.core.Option.Or``1(nexus.core.Option{``0},nexus.core.Deferred{``0})">
+      <summary>
+            If <see cref="P:nexus.core.Option`1.HasValue" /> is <c>true</c>, returns <see cref="P:nexus.core.Option`1.Value" />, else resolves deferred
+            <paramref name="alternateValue" /></summary>
+    </member>
+    <member name="M:nexus.core.Option.Or``1(nexus.core.Option{``0},System.Func{``0})">
+      <summary>
+            If <see cref="P:nexus.core.Option`1.HasValue" /> is <c>true</c>, returns <see cref="P:nexus.core.Option`1.Value" />, else returns the result of
+            executing <paramref name="alternateValue" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="alternateValue != null" vb="alternateValue &lt;&gt; Nothing">alternateValue != null</requires>
+      <exception cref="T:System.ArgumentNullException"> alternateValue == null </exception>
+    </member>
+    <member name="M:nexus.core.Option.Or``1(nexus.core.Option{``0},nexus.core.Option{``0})">
+      <summary>
+            If <see cref="P:nexus.core.Option`1.HasValue" /> is <c>true</c>, returns <see cref="P:nexus.core.Option`1.Value" />, else returns
+            <paramref name="alternateValue" /></summary>
+    </member>
+    <member name="M:nexus.core.Option.OrDefault``1(nexus.core.Option{``0})">
+      <summary>
+            If <see cref="P:nexus.core.Option`1.HasValue" /> is <c>true</c>, returns <see cref="P:nexus.core.Option`1.Value" />, else returns
+            <c>default(T)</c></summary>
+    </member>
+    <member name="M:nexus.core.Option.OrNull``1(nexus.core.Option{``0})">
+      <summary>
+            If <see cref="P:nexus.core.Option`1.HasValue" /> is <c>true</c>, returns <see cref="P:nexus.core.Option`1.Value" />, else returns
+            <c>null</c></summary>
+    </member>
+    <member name="M:nexus.core.Option.OrNullable``1(nexus.core.Option{``0})">
+      <summary>
+            If <see cref="P:nexus.core.Option`1.HasValue" /> is <c>true</c>, returns <see cref="P:nexus.core.Option`1.Value" />, else returns
+            <c>T?</c></summary>
+    </member>
+    <member name="T:nexus.core.Pair">
+      <summary>
+            Utility method to create a <see cref="T:System.Collections.Generic.KeyValuePair`2" /> with <see cref="M:nexus.core.Pair.Of``2(``0,``1)" />. That's all :)
+            </summary>
+    </member>
+    <member name="M:nexus.core.Pair.Of``2(``0,``1)">
+      <summary>
+            Utility method to create a <see cref="T:System.Collections.Generic.KeyValuePair`2" /></summary>
+    </member>
+    <member name="T:nexus.core.Parse">
+      <summary>
+            Utility methods to to type conversions with methods to catch exceptions and return default values or return
+            <see cref="T:nexus.core.Option`1" /></summary>
+    </member>
+    <member name="M:nexus.core.Parse.OrDefault``1(System.Object,``0)">
+      <summary>
+            Convert <paramref name="value" /> to the provided type or return <paramref name="defaultValue" /> if an
+            exception is thrown.
+            </summary>
+      <returns>
+            The result from converting <paramref name="value" /> or <paramref name="defaultValue" /> if an exception is
+            thrown.
+            </returns>
+    </member>
+    <member name="M:nexus.core.Parse.OrThrow(System.Object,System.Type)">
+      <summary>
+            Parses the passed object into the passed type. On an invalid conversion <code>InvalidCastException</code> or
+            <code>FormatException</code> is thrown. Note: DateTime conversions are assumed to be UTC if no timezone is present.
+            </summary>
+      <param name="value">The value to convert</param>
+      <param name="to">The type to convert to</param>
+      <exception cref="T:System.FormatException">On invalid conversion</exception>
+      <exception cref="T:System.OverflowException">On invalid conversion</exception>
+      <exception cref="T:System.ArgumentException">On invalid conversion</exception>
+      <returns />
+      <requires csharp="to != null" vb="to &lt;&gt; Nothing">to != null</requires>
+    </member>
+    <member name="M:nexus.core.Parse.ParseOrDefault``1(System.String,``0)">
+      <summary>
+            Parse the given string to the provided type or return <paramref name="defaultValue" /> if an exception is thrown.
+            </summary>
+    </member>
+    <member name="M:nexus.core.Parse.ParseOrThrow``1(System.String)">
+      <summary>
+            Parse the given string to the provided type, throwing any exceptions up the stack
+            </summary>
+    </member>
+    <member name="M:nexus.core.Parse.TryParse``1(System.String)">
+      <summary>
+            Try to parse the given string to the provided type, exceptions will be swallowed and an empty
+            <see cref="T:nexus.core.Option`1" /> will be returned
+            </summary>
+    </member>
+    <member name="T:nexus.core.Parse`1">
+      <summary>
+            Static utility methods to parse values into other types
+            </summary>
+    </member>
+    <member name="M:nexus.core.Parse`1.Expected(System.Object)">
+      <summary>
+            If parsing fails, collect any exceptions into an <see cref="M:nexus.core.Parse`1.Expected(System.Object)" /></summary>
+    </member>
+    <member name="M:nexus.core.Parse`1.Maybe(System.Object)">
+      <summary>
+            Parse <paramref name="value" /> and return <see cref="F:nexus.core.Option`1.NoValue" /> on failure
+            </summary>
+    </member>
+    <member name="M:nexus.core.Parse`1.OrDefault(System.Object,`0)">
+      <summary>
+            Parses the passed object into the generic type, if an exception is thrown, the default value is used
+            instead. This method does not throw any exceptions.
+            <remarks><see cref="T:System.DateTime" /> conversions are assumed to be UTC if no timezone is present.</remarks></summary>
+      <param name="value">The value to convert</param>
+      <param name="defaultValue" />
+      <returns />
+    </member>
+    <member name="M:nexus.core.Parse`1.OrThrow(System.Object)">
+      <summary>
+            Parses the passed object into the generic type. On an invalid conversion <code>InvalidCastException</code> or
+            <code>FormatException</code> is thrown.
+            any exceptions.
+            </summary>
+      <param name="value">The value to convert</param>
+      <exception cref="T:System.FormatException">On invalid conversion</exception>
+      <returns />
+    </member>
+    <member name="T:nexus.core.text.Base16Encoder">
+      <summary>
+            Use <see cref="F:nexus.core.text.Base16Encoder.Lowercase" /> or <see cref="F:nexus.core.text.Base16Encoder.Uppercase" /></summary>
+    </member>
+    <member name="F:nexus.core.text.Base16Encoder.Lowercase">
+      <summary>
+            Singleton instance of <see cref="T:nexus.core.text.Base16Encoder" /></summary>
+    </member>
+    <member name="F:nexus.core.text.Base16Encoder.Uppercase">
+      <summary>
+            Singleton instance of <see cref="T:nexus.core.text.Base16Encoder" /></summary>
+    </member>
+    <member name="M:nexus.core.text.Base16Encoder.#ctor(System.Collections.Generic.IList{System.Char})">
+      <summary>
+            Create a new base16 encoder with a custom symbol table
+            </summary>
+      <requires description="Symbol table provided to Base16Encoder cannot be null" exception="T:System.ArgumentException" csharp="symbolTable != null" vb="symbolTable &lt;&gt; Nothing">symbolTable != null</requires>
+      <exception cref="T:System.ArgumentException">
+            symbolTable == null</exception>
+      <requires description="Symbol table provided to  Base16Encoder must contain exactly 16 characters" exception="T:System.ArgumentException" csharp="symbolTable.Count == 16" vb="symbolTable.Count = 16">symbolTable.Count == 16</requires>
+      <exception cref="T:System.ArgumentException">
+            symbolTable.Count != 16</exception>
+    </member>
+    <member name="P:nexus.core.text.Base16Encoder.Base">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.text.Base16Encoder.SymbolsLowercase">
+      <summary>
+            Hex symbols using lower case a-f
+            </summary>
+    </member>
+    <member name="P:nexus.core.text.Base16Encoder.SymbolsUppercase">
+      <summary>
+            Hex symbols using uppercase A-F
+            </summary>
+    </member>
+    <member name="P:nexus.core.text.Base16Encoder.SymbolTable">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.Base16Encoder.Decode(System.String)">
+      <summary>
+            Decodes a hexadecimal string into a byte array.
+            </summary>
+      <param name="source">The string value to convert</param>
+      <returns>A byte array.</returns>
+      <exception cref="T:System.FormatException">
+            If any characters of the provided encoded string are not valid hex characters in the
+            range [0-9A-Z].
+            </exception>
+    </member>
+    <member name="M:nexus.core.text.Base16Encoder.Decode(System.Char[])">
+      <exception cref="T:System.FormatException">If any characters provided cannot be found in the symbol table</exception>
+      <requires csharp="chars != null" vb="chars &lt;&gt; Nothing">chars != null</requires>
+      <requires csharp="chars.Length &gt; 1" vb="chars.Length &gt; 1">chars.Length &gt; 1</requires>
+      <ensures csharp="Contract.Result&lt;byte[]&gt;() != null" vb="Contract.Result(Of Byte())() &lt;&gt; Nothing">result != null</ensures>
+      <ensures csharp="Contract.Result&lt;byte[]&gt;().Length == chars.Length / 2" vb="Contract.Result(Of Byte())().Length = chars.Length / 2">result.Length == chars.Length / 2</ensures>
+    </member>
+    <member name="M:nexus.core.text.Base16Encoder.Decode(System.Char,System.Nullable{System.Char})">
+      <summary>
+            Decode one or two hex characters to a single byte
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.Base16Encoder.Encode(System.Byte[])">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.Base16Encoder.Encode(System.Byte)">
+      <inheritdoc cref="M:nexus.core.text.Base16Encoder.Encode(System.Byte[])" />
+    </member>
+    <member name="T:nexus.core.text.Base64Encoder">
+      <summary>
+            Use <see cref="F:nexus.core.text.Base64Encoder.Instance" /></summary>
+    </member>
+    <member name="F:nexus.core.text.Base64Encoder.Instance">
+      <summary>
+            Singleton instance of <see cref="T:nexus.core.text.Base64Encoder" /></summary>
+    </member>
+    <member name="M:nexus.core.text.Base64Encoder.#ctor">
+      <summary />
+    </member>
+    <member name="P:nexus.core.text.Base64Encoder.Base">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.text.Base64Encoder.SymbolTable">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.Base64Encoder.Decode(System.String)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.Base64Encoder.Encode(System.Byte[])">
+      <summary>
+            A convenience function that calls Convert.ToBase64String() which converts an array of 8-bit unsigned integers to its
+            equivalent System.String representation encoded with base 64 digits.
+            </summary>
+      <param name="data">The byte array to convert</param>
+      <returns>A base-64 encoded string</returns>
+    </member>
+    <member name="T:nexus.core.text.EncodingUtils">
+      <summary>
+            Extension and utility methods to convert to/from bytes and encoded string values
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.AsUtf16String(System.Byte[],System.Boolean)">
+      <summary>
+            Presume the given bytes are Unicode UTF-16 encoded and return its string value
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.AsUtf8String(System.Byte[],System.Boolean)">
+      <summary>
+            Presume the given bytes are Unicode UTF-8 encoded and return its string value
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.DecodeAsBase16(System.String)">
+      <summary>
+            Parse this string as a hexadecimal-encoded value and return the resulting byte array the hex-encoded value represents
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.DecodeAsBase16(System.String,System.Boolean)">
+      <summary>
+            Parse this string as a hexadecimal-encoded value and return the resulting byte array the hex-encoded value represents
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.DecodeAsBase64(System.String)">
+      <summary>
+            Parse this string as a Base64-encoded value and return the resulting byte array the Base64-encoded value represents
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.EncodeToBase16String(System.Byte[],System.Boolean)">
+      <summary>
+            Encode the bytearray into a hexadecimal string
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.EncodeToBase16String(System.Byte,System.Boolean)">
+      <summary>
+            Encode the bytearray into a hexadecimal string
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.EncodeToBase64String(System.Byte[])">
+      <summary>
+            Encode the bytearray into a base-64 string
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.GetUtf16Bytes(System.String,System.Boolean)">
+      <summary>
+            Get the bytes representing this string in utf-16 encoding
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.GetUtf16Bytes(nexus.core.Option{System.String},System.Boolean)">
+      <summary>
+            Get the bytes representing this string in utf-16 encoding
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.GetUtf8Bytes(System.String,System.Boolean)">
+      <summary>
+            Get the bytes representing this string in utf-8 encoding
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.EncodingUtils.GetUtf8Bytes(nexus.core.Option{System.String},System.Boolean)">
+      <summary>
+            Get the bytes representing this string in utf-8 encoding
+            </summary>
+    </member>
+    <member name="T:nexus.core.text.IBinaryEncoder">
+      <summary>
+            Use <see cref="T:nexus.core.text.IBinaryEncoder" /> when your source data is a byte array and you want to convert that information
+            losslessly to a human-readable string.
+            Functionally, this means taking a byte array (base-2) and converting it into another base number system using
+            characters as the symbols and resulting in a string as the encoded representation of the resulting value.
+            Therefore use <see cref="T:nexus.core.text.IBinaryEncoder" /> to:
+            1. Serialize arbitrary bytes to a formatted string
+            2. Deserialize a formatted string to the original bytes
+            </summary>
+    </member>
+    <member name="P:nexus.core.text.IBinaryEncoder.Base">
+      <summary>
+            The number of symbols in the symbol table. I.e., the base of the number system of the encoded value.
+            </summary>
+    </member>
+    <member name="P:nexus.core.text.IBinaryEncoder.SymbolTable">
+      <summary>
+            An indexed and ordered list of the characters used to represent each numeral in this base number system.
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.IBinaryEncoder.Decode(System.String)">
+      <summary>
+            Decode a formatted string to the original bytes
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.IBinaryEncoder.Encode(System.Byte[])">
+      <summary>
+            Encode arbitrary bytes to a formatted string
+            </summary>
+    </member>
+    <member name="T:nexus.core.text.Utf8Encoding">
+      <summary>
+            A <see cref="T:nexus.core.text.ITextEncoding" /> for UTF-8
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.Utf8Encoding.#ctor(System.Boolean,System.Boolean)">
+      <summary />
+    </member>
+    <member name="P:nexus.core.text.Utf8Encoding.WithBOM">
+      <summary>
+        <see cref="T:nexus.core.text.Utf8Encoding" /> with byte-order-mark, and
+            exceptions thrown on invalid bytes
+            </summary>
+    </member>
+    <member name="P:nexus.core.text.Utf8Encoding.WithoutBOM">
+      <summary>
+        <see cref="T:nexus.core.text.Utf8Encoding" /> with **no** byte-order-mark, and exceptions thrown on invalid bytes
+            </summary>
+    </member>
+    <member name="T:nexus.core.text.ITextEncoding">
+      <summary>
+            Use <see cref="T:nexus.core.text.ITextEncoding" /> when your source data is a string and you want to convert that information
+            losslessly to a byte array.
+            <see cref="T:nexus.core.text.ITextEncoding" /> can
+            1. Encode an arbitrary string to formatted bytes
+            2. Decode formatted bytes to the original string
+            </summary>
+    </member>
+    <member name="P:nexus.core.text.ITextEncoding.Encoding">
+      <summary>
+            The underling <see cref="P:nexus.core.text.ITextEncoding.Encoding" /> in use
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.ITextEncoding.AsCharArray(System.Byte[])">
+      <summary>
+            Decode <paramref name="sourceBytes" /> into a character array according to this encoding
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.ITextEncoding.AsString(System.Byte[])">
+      <summary>
+            Decode <paramref name="sourceBytes" /> into a string according to this encoding
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.ITextEncoding.GetBytes(System.String)">
+      <summary>
+            Get the string bytes according to this encoding
+            </summary>
+    </member>
+    <member name="T:nexus.core.text.TextEncoding">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.TextEncoding.#ctor(System.Text.Encoding)">
+      <summary />
+      <requires csharp="encoding != null" vb="encoding &lt;&gt; Nothing">encoding != null</requires>
+      <requires exception="T:System.ArgumentNullException" csharp="encoding != null" vb="encoding &lt;&gt; Nothing">encoding != null</requires>
+      <exception cref="T:System.ArgumentNullException"> encoding == null </exception>
+    </member>
+    <member name="P:nexus.core.text.TextEncoding.Encoding">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.TextEncoding.AsCharArray(System.Byte[])">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.TextEncoding.AsString(System.Byte[])">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.TextEncoding.Equals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.TextEncoding.GetBytes(System.String)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.core.text.TextEncoding.GetHashCode">
+      <inheritdoc cref="M:System.Object.GetHashCode" />
+    </member>
+    <member name="M:nexus.core.text.TextEncoding.op_Explicit(nexus.core.text.TextEncoding)~System.Text.Encoding">
+      <summary>
+            Explicit type conversion for <see cref="P:nexus.core.text.TextEncoding.Encoding" /> and <see cref="T:nexus.core.text.TextEncoding" /></summary>
+    </member>
+    <member name="M:nexus.core.text.TextEncoding.op_Explicit(System.Text.Encoding)~nexus.core.text.TextEncoding">
+      <summary>
+            Explicit type conversion for <see cref="P:nexus.core.text.TextEncoding.Encoding" /> and <see cref="T:nexus.core.text.TextEncoding" /></summary>
+    </member>
+    <member name="T:nexus.core.text.Utf16Encoding">
+      <summary>
+            A <see cref="T:nexus.core.text.ITextEncoding" /> for UTF-16
+            </summary>
+    </member>
+    <member name="M:nexus.core.text.Utf16Encoding.#ctor(System.Boolean,nexus.core.ByteOrder,System.Boolean)">
+      <summary />
+    </member>
+    <member name="P:nexus.core.text.Utf16Encoding.WithBOM">
+      <summary>
+        <see cref="T:nexus.core.text.Utf16Encoding" /> with byte-order-mark, endianness set to <see cref="P:nexus.core.Bytes.HostEnvironmentByteOrder" />, and
+            exceptions thrown on invalid bytes
+            </summary>
+    </member>
+    <member name="P:nexus.core.text.Utf16Encoding.WithoutBOM">
+      <summary>
+        <see cref="T:nexus.core.text.Utf16Encoding" /> with **no** byte-order-mark, endianness set to
+            <see cref="P:nexus.core.Bytes.HostEnvironmentByteOrder" />, and exceptions thrown on invalid bytes
+            </summary>
+    </member>
+    <member name="T:nexus.core.IDeserializer`1">
+      <summary>
+            Deserialize from some <typeparamref name="TSource" /> object to a call-time-specified type. See
+            <see cref="M:nexus.core.Deserializer.Create``1(System.Func{``0,System.Type,System.Object})" /></summary>
+    </member>
+    <member name="M:nexus.core.IDeserializer`1.Deserialize``1(`0)">
+      <summary>
+            Deserialize from some source object to a call-time-specified type
+            </summary>
+    </member>
+    <member name="M:nexus.core.IDeserializer`1.Deserialize(`0,System.Type)">
+      <summary>
+            Non-generic version of <see cref="M:nexus.core.IDeserializer`1.Deserialize``1(`0)" /></summary>
+    </member>
+    <member name="T:nexus.core.IObjectConverter`2">
+      <summary>
+            A typed converter from one object into another.
+            </summary>
+    </member>
+    <member name="M:nexus.core.IObjectConverter`2.Convert(`0)">
+      <summary>
+            Convert from a source object to a destination object
+            </summary>
+    </member>
+    <member name="T:nexus.core.IObjectConverter">
+      <summary>
+            Converter without type information for use in collections or other places a generic interface can cause problems. See
+            <see cref="M:nexus.core.ObjectConverter.AsUntyped``2(nexus.core.IObjectConverter{``0,``1})" /></summary>
+    </member>
+    <member name="M:nexus.core.IObjectConverter.CanConvertObjectOfType(System.Type)">
+      <summary>
+        <c>true</c> if this type can be converted
+            </summary>
+    </member>
+    <member name="T:nexus.core.io.IStreamDeserializer">
+      <summary>
+        <see cref="T:nexus.core.IDeserializer`1" /> with additional async methods. Deserialize from a <see cref="T:System.IO.Stream" /> to a
+            call-time-specified type
+            </summary>
+      <remarks>The extension methods on <see cref="T:nexus.core.io.SerializationUtils" /> provide a better API</remarks>
+    </member>
+    <member name="M:nexus.core.io.IStreamDeserializer.Deserialize``1(System.IO.Stream)">
+      <summary>
+            Deserialize from some source object to a call-time-specified type
+            </summary>
+    </member>
+    <member name="M:nexus.core.io.IStreamDeserializer.Deserialize(System.IO.Stream,System.Type)">
+      <summary>
+            Non-generic version of <see cref="M:nexus.core.io.IStreamDeserializer.Deserialize``1(System.IO.Stream)" /></summary>
+    </member>
+    <member name="M:nexus.core.io.IStreamDeserializer.DeserializeAsync``1(System.IO.Stream)">
+      <summary>
+            Deserialize on object of type <typeparamref name="T" /> from <paramref name="source" /></summary>
+    </member>
+    <member name="M:nexus.core.io.IStreamDeserializer.DeserializeAsync(System.IO.Stream,System.Type)">
+      <summary>
+            Deserialize on object of type <paramref name="desiredReturnType" /> from <paramref name="source" /></summary>
+    </member>
+    <member name="T:nexus.core.io.ITextReaderDeserializer">
+      <summary>
+        <see cref="T:nexus.core.IDeserializer`1" /> with additional async methods. Deserialize from a <see cref="T:System.IO.TextReader" /> to
+            a call-time-specified type.
+            </summary>
+      <remarks>The extension methods on <see cref="T:nexus.core.io.SerializationUtils" /> provide a better API</remarks>
+    </member>
+    <member name="M:nexus.core.io.ITextReaderDeserializer.Deserialize``1(System.IO.TextReader)">
+      <summary>
+            Deserialize from some source object to a call-time-specified type
+            </summary>
+    </member>
+    <member name="M:nexus.core.io.ITextReaderDeserializer.Deserialize(System.IO.TextReader,System.Type)">
+      <summary>
+            Non-generic version of <see cref="M:nexus.core.io.ITextReaderDeserializer.Deserialize``1(System.IO.TextReader)" /></summary>
+    </member>
+    <member name="M:nexus.core.io.ITextReaderDeserializer.DeserializeAsync``1(System.IO.TextReader)">
+      <summary>
+            Deserialize on object of type <typeparamref name="T" /> from <paramref name="source" /></summary>
+    </member>
+    <member name="M:nexus.core.io.ITextReaderDeserializer.DeserializeAsync(System.IO.TextReader,System.Type)">
+      <summary>
+            Deserialize on object of type <paramref name="desiredReturnType" /> from <paramref name="source" /></summary>
+    </member>
+    <member name="T:nexus.core.io.ITextWriterSerializer">
+      <summary>
+            Serialize any generic type to a <see cref="T:System.IO.TextWriter" /></summary>
+      <remarks>The extension methods on <see cref="T:nexus.core.io.SerializationUtils" /> provide a better API</remarks>
+    </member>
+    <member name="M:nexus.core.io.ITextWriterSerializer.Serialize``1(``0,System.IO.TextWriter)">
+      <summary>
+            Serialize any generic type to the given <see cref="T:System.IO.TextWriter" /></summary>
+    </member>
+    <member name="M:nexus.core.io.ITextWriterSerializer.SerializeAsync``1(``0,System.IO.TextWriter)">
+      <summary>
+            Serialize any generic type to the given <see cref="T:System.IO.TextWriter" /></summary>
+    </member>
+    <member name="T:nexus.core.io.SerializationUtils">
+      <summary>
+            Extension methods for <see cref="T:System.IO.Stream" /> and <see cref="T:System.IO.TextWriter" /></summary>
+    </member>
+    <member name="M:nexus.core.io.SerializationUtils.ReadObject``1(System.IO.Stream,nexus.core.IDeserializer{System.IO.Stream})">
+      <summary>
+            Read an object from <paramref name="source" /> using the given <paramref name="deserializer" /></summary>
+    </member>
+    <member name="M:nexus.core.io.SerializationUtils.ReadObject``1(System.IO.TextReader,nexus.core.IDeserializer{System.IO.TextReader})">
+      <summary>
+            Read an object from <paramref name="source" /> using the given <paramref name="deserializer" /></summary>
+    </member>
+    <member name="M:nexus.core.io.SerializationUtils.ReadObjectAsync``1(System.IO.Stream,nexus.core.io.IStreamDeserializer)">
+      <summary>
+            Read an object from <paramref name="source" /> using the given <paramref name="deserializer" /></summary>
+    </member>
+    <member name="M:nexus.core.io.SerializationUtils.ReadObjectAsync``1(System.IO.TextReader,nexus.core.io.ITextReaderDeserializer)">
+      <summary>
+            Read an object from <paramref name="source" /> using the given <paramref name="deserializer" /></summary>
+    </member>
+    <member name="M:nexus.core.io.SerializationUtils.WriteObject``1(System.IO.Stream,``0,nexus.core.io.IStreamSerializer)">
+      <summary>
+            Wrte an object to <paramref name="destination" /> using the given <paramref name="serializer" /></summary>
+    </member>
+    <member name="M:nexus.core.io.SerializationUtils.WriteObject``1(System.IO.TextWriter,``0,nexus.core.io.ITextWriterSerializer)">
+      <summary>
+            Wrte an object to <paramref name="destination" /> using the given <paramref name="serializer" /></summary>
+    </member>
+    <member name="M:nexus.core.io.SerializationUtils.WriteObjectAsync``1(System.IO.Stream,``0,nexus.core.io.IStreamSerializer)">
+      <summary>
+            Wrte an object to <paramref name="destination" /> using the given <paramref name="serializer" /></summary>
+    </member>
+    <member name="M:nexus.core.io.SerializationUtils.WriteObjectAsync``1(System.IO.TextWriter,``0,nexus.core.io.ITextWriterSerializer)">
+      <summary>
+            Wrte an object to <paramref name="destination" /> using the given <paramref name="serializer" /></summary>
+    </member>
+    <member name="T:nexus.core.io.IStreamSerializer">
+      <summary>
+            Serialize any generic type to the given <see cref="T:System.IO.Stream" /></summary>
+      <remarks>The extension methods on <see cref="T:nexus.core.io.SerializationUtils" /> provide a better API</remarks>
+    </member>
+    <member name="M:nexus.core.io.IStreamSerializer.Serialize``1(``0,System.IO.Stream)">
+      <summary>
+            Serialize any generic type to the given <see cref="T:System.IO.Stream" /></summary>
+    </member>
+    <member name="M:nexus.core.io.IStreamSerializer.SerializeAsync``1(``0,System.IO.Stream)">
+      <summary>
+            Serialize any generic type to the given <see cref="T:System.IO.Stream" /></summary>
+    </member>
+    <member name="T:nexus.core.StringUtils">
+      <summary>
+            Extension methods for string
+            </summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.F(System.String,System.Object[])">
+      <summary>
+            Wraps <see cref="M:System.String.Format(System.String,System.Object[])" /> for more convenient use, e.g.,
+            <code>"Value {0}".@F(argument)</code>.
+            </summary>
+      <requires csharp="format != null" vb="format &lt;&gt; Nothing">format != null</requires>
+      <requires csharp="args != null" vb="args &lt;&gt; Nothing">args != null</requires>
+      <ensures csharp="Contract.Result&lt;string&gt;() != null" vb="Contract.Result(Of String)() &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:nexus.core.StringUtils.IsNullOrEmpty(System.String)">
+      <summary>
+            Syntax sugar for <see cref="M:System.String.IsNullOrEmpty(System.String)" /></summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.IsNullOrWhiteSpace(System.String)">
+      <summary>
+            Syntax sugar for <see cref="M:System.String.IsNullOrWhiteSpace(System.String)" /></summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.Join(System.String[],System.String)">
+      <summary>
+            Syntax sugar for <see cref="M:System.String.Join(System.String,System.String[])" /></summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
+      <summary>
+            Syntax sugar for <see cref="M:System.String.Join(System.String,System.Collections.Generic.IEnumerable{System.String})" /></summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.StripCharacters(System.String,System.String)">
+      <summary>
+            Removes any of the individual characters in <paramref name="stripValues" /> from <paramref name="source" /></summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.StripCharacters(System.String,System.Char[])">
+      <summary>
+            Removes any of the characters in <paramref name="stripValues" /> from <paramref name="source" /></summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.Test(System.Text.RegularExpressions.Regex,System.String,System.Nullable{System.Int32})">
+      <summary>
+            Calls regex.IsMatch() but returns false if the input is null instead of throwing an ArgumentNullException
+            </summary>
+      <param name="regex" />
+      <param name="input" />
+      <param name="startAt">The character position at which to start the search. </param>
+      <returns />
+    </member>
+    <member name="M:nexus.core.StringUtils.ToString(System.Int16,System.Int32)">
+      <summary>
+            Convert <see cref="T:System.Int16" /> to string in a given base number system.
+            </summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.ToString(System.Int32,System.Int32)">
+      <summary>
+            Convert <see cref="T:System.Int32" /> to string in a given base number system.
+            </summary>
+    </member>
+    <member name="M:nexus.core.StringUtils.ToString(System.Int64,System.Int32)">
+      <summary>
+            Convert <see cref="T:System.Int64" /> to string in a given base number system.
+            </summary>
+    </member>
+    <member name="T:nexus.core.time.DateTimeUtils">
+      <summary>
+            Extension and utility methods for <see cref="T:System.DateTime" /> and similar
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToIso8601String(System.DateTime,System.Boolean)">
+      <summary>
+            yyyy-MM-ddTHH:mm:ss.fffK
+            </summary>
+      <param name="time" />
+      <param name="includeDelimeters">
+        <c>true</c> to include '-', ':' and '.' in output</param>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToIso8601String(System.DateTimeOffset,System.Boolean)">
+      <summary>
+            yyyy-MM-ddTHH:mm:ss.fffK
+            </summary>
+      <param name="time" />
+      <param name="includeDelimeters">
+        <c>true</c> to include '-', ':' and '.' in output</param>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToUnixTimestamp(System.DateTime)">
+      <summary>
+            Total seconds elapsed since January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToUnixTimestamp(System.DateTimeOffset)">
+      <summary>
+            Total seconds elapsed since January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToUnixTimestamp(System.Nullable{System.DateTime})">
+      <summary>
+            Total seconds elapsed since January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToUnixTimestamp(System.Nullable{System.DateTimeOffset})">
+      <summary>
+            Total seconds elapsed since January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToUnixTimestampInMilliseconds(System.Nullable{System.DateTime})">
+      <summary>
+            Total milliseconds elapsed since January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToUnixTimestampInMilliseconds(System.Nullable{System.DateTimeOffset})">
+      <summary>
+            Total milliseconds elapsed since January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToUnixTimestampInMilliseconds(System.DateTime)">
+      <summary>
+            Total milliseconds elapsed since January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.ToUnixTimestampInMilliseconds(System.DateTimeOffset)">
+      <summary>
+            Total milliseconds elapsed since January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampInMillisecondsToDateTime(System.Int64)">
+      <summary>
+            Convert milliseconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampInMillisecondsToDateTime(System.Double)">
+      <summary>
+            Convert milliseconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampInMillisecondsToDateTimeOffset(System.Int64)">
+      <summary>
+            Convert milliseconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampInMillisecondsToDateTimeOffset(System.Double)">
+      <summary>
+            Convert milliseconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampToDateTime(System.Int64)">
+      <summary>
+            Convert seconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampToDateTime(System.Int32)">
+      <summary>
+            Convert seconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampToDateTime(System.Double)">
+      <summary>
+            Convert seconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampToDateTimeOffset(System.Int64)">
+      <summary>
+            Convert seconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampToDateTimeOffset(System.Int32)">
+      <summary>
+            Convert seconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="M:nexus.core.time.DateTimeUtils.UnixTimestampToDateTimeOffset(System.Double)">
+      <summary>
+            Convert seconds elapsed since January 1, 1970 UTC into a <see cref="T:System.DateTime" /></summary>
+    </member>
+    <member name="T:nexus.core.time.DefaultTimeProvider">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.core.time.DefaultTimeProvider.UtcNow">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.core.time.ITimeProvider">
+      <summary>
+            Provide the current time
+            </summary>
+    </member>
+    <member name="P:nexus.core.time.ITimeProvider.UtcNow">
+      <summary>
+            The current time in UTC
+            </summary>
+    </member>
+    <member name="T:nexus.core.time.TimeEpoch">
+      <summary>
+            A named <see cref="T:System.DateTime" /> representing the start of an epoch. See <see cref="T:nexus.core.time.ITimeProvider" /></summary>
+    </member>
+    <member name="M:nexus.core.time.TimeEpoch.#ctor(System.DateTimeOffset,System.String)">
+      <summary />
+    </member>
+    <member name="P:nexus.core.time.TimeEpoch.EpochName">
+      <summary>
+            Friendly-name for this epoch
+            </summary>
+    </member>
+    <member name="P:nexus.core.time.TimeEpoch.EpochStart">
+      <summary>
+            The point in time when this epoch starts
+            </summary>
+    </member>
+    <member name="P:nexus.core.time.TimeEpoch.None">
+      <summary>
+            Epoch representing no value, starts at <see cref="F:System.DateTime.MinValue" /></summary>
+    </member>
+    <member name="P:nexus.core.time.TimeEpoch.NtpEpoch">
+      <summary>
+            Epoch which starts at January 1, 1900 UTC
+            </summary>
+    </member>
+    <member name="P:nexus.core.time.TimeEpoch.UnixEpoch">
+      <summary>
+            Epoch which starts at January 1, 1970 UTC
+            </summary>
+    </member>
+    <member name="M:nexus.core.ObjectConverter.TypedObjectConverter`2.#ctor(System.Func{`0,`1})">
+      <requires csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+    </member>
+    <member name="M:nexus.core.ObjectConverter.TypedToUntypedObjectConverterWrapper`2.#ctor(nexus.core.IObjectConverter{`0,`1})">
+      <requires csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+    </member>
+    <member name="M:nexus.core.ObjectConverter.UntypedObjectConverter.#ctor(System.Func{System.Object,System.Object},System.Func{System.Type,System.Boolean})">
+      <requires csharp="converter != null" vb="converter &lt;&gt; Nothing">converter != null</requires>
+      <requires csharp="canConvert != null" vb="canConvert &lt;&gt; Nothing">canConvert != null</requires>
+    </member>
+    <member name="M:nexus.core.Deserializer.GenericDeserializer`1.#ctor(System.Func{`0,System.Type,System.Object})">
+      <requires csharp="deserialize != null" vb="deserialize &lt;&gt; Nothing">deserialize != null</requires>
+    </member>
+  </members>
+</doc>

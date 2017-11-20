@@ -1,0 +1,1329 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>ble.net</name>
+  </assembly>
+  <members>
+    <member name="T:nexus.protocols.ble.adopted.AdoptedCharacteristics">
+      <see href="https://www.bluetooth.com/specifications/gatt/characteristics" />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.AdoptedCharacteristics.AddAdoptedCharacteristics(nexus.protocols.ble.adopted.KnownAttributes)">
+      <inheritdoc cref="M:nexus.protocols.ble.adopted.AdoptedCharacteristics.AddTo(nexus.protocols.ble.adopted.KnownAttributes)" />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.AdoptedCharacteristics.AddTo(nexus.protocols.ble.adopted.KnownAttributes)">
+      <summary>
+            Add the Bluetooth SIG adopted characteristics to <paramref name="attributes" /><remarks><see href="https://www.bluetooth.com/specifications/gatt/characteristics" /></remarks></summary>
+    </member>
+    <member name="T:nexus.protocols.ble.adopted.AdoptedDescriptors">
+      <see href="https://www.bluetooth.com/specifications/gatt/descriptors" />
+    </member>
+    <member name="F:nexus.protocols.ble.adopted.AdoptedDescriptors.CharacteristicExtendedProperties">
+      <summary>
+            Characteristic Extended Properties
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.adopted.AdoptedDescriptors.CharacteristicUserDescription">
+      <summary>
+            Characteristic User Description
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.adopted.AdoptedDescriptors.ClientCharacteristicConfiguration">
+      <summary>
+            Client characteristic configuration descriptor GUID
+            </summary>
+      <see href="https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.descriptor.gatt.client_characteristic_configuration.xml" />
+    </member>
+    <member name="F:nexus.protocols.ble.adopted.AdoptedDescriptors.ServerCharacteristicConfiguration">
+      <summary>
+            Server Characteristic Configuration
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.adopted.AdoptedDescriptors.CharacteristicFormat">
+      <summary>
+            Characteristic Presentation Format
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.adopted.AdoptedDescriptors.CharacteristicAggregateFormat">
+      <summary>
+            Characteristic Aggregate Format
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.AdoptedDescriptors.AddAdoptedDescriptors(nexus.protocols.ble.adopted.KnownAttributes)">
+      <inheritdoc cref="M:nexus.protocols.ble.adopted.AdoptedDescriptors.AddTo(nexus.protocols.ble.adopted.KnownAttributes)" />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.AdoptedDescriptors.AddTo(nexus.protocols.ble.adopted.KnownAttributes)">
+      <summary>
+            Add the Bluetooth SIG adopted descriptors to <paramref name="attributes" /><remarks><see href="https://www.bluetooth.com/specifications/gatt/descriptors" /></remarks></summary>
+    </member>
+    <member name="T:nexus.protocols.ble.adopted.AdoptedServices">
+      <see href="https://www.bluetooth.com/specifications/gatt/services" />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.AdoptedServices.AddAdoptedServices(nexus.protocols.ble.adopted.KnownAttributes)">
+      <inheritdoc cref="M:nexus.protocols.ble.adopted.AdoptedServices.AddTo(nexus.protocols.ble.adopted.KnownAttributes)" />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.AdoptedServices.AddTo(nexus.protocols.ble.adopted.KnownAttributes)">
+      <summary>
+            Add the Bluetooth SIG adopted services to <paramref name="attributes" />.
+            <remarks><see href="https://www.bluetooth.com/specifications/gatt/services" /></remarks></summary>
+    </member>
+    <member name="T:nexus.protocols.ble.adopted.KnownAttribute">
+      <summary>
+            Represents an ATT attribute (service, characteristic, or descriptor) that is of a known type and usage and has an
+            associated name
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttribute.#ctor(System.Guid,System.String,nexus.protocols.ble.GattAttributeType)">
+      <summary />
+    </member>
+    <member name="P:nexus.protocols.ble.adopted.KnownAttribute.Description">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.protocols.ble.adopted.KnownAttribute.Id">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.protocols.ble.adopted.KnownAttribute.Type">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttribute.Equals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttribute.Equals(nexus.protocols.ble.IGattAttribute)">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttribute.GetHashCode">
+      <inheritdoc />
+    </member>
+    <member name="T:nexus.protocols.ble.adopted.KnownAttributes">
+      <summary>
+            Stores known information about services, characteristics, and descriptors. Useful for lookup to get a name when you
+            just have a GUID (see <see cref="M:nexus.protocols.ble.adopted.KnownAttributes.Get(System.Guid)" />)
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.adopted.KnownAttributes.m_items">
+      <summary>
+            The dictionary of registered attributes
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.#ctor">
+      <summary />
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.Add(nexus.protocols.ble.IGattAttribute)">
+      <summary>
+            Add a <see cref="T:nexus.protocols.ble.IGattAttribute" /></summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddCharacteristic(System.UInt16,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddCharacteristic(System.Guid,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddCharacteristic(System.String,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddDescriptor(System.UInt16,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddDescriptor(System.Guid,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddDescriptor(System.String,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddService(System.UInt16,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddService(System.Guid,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.AddService(System.String,System.String)">
+      <summary>
+            Add the provided information to the known attributes so it can easily be looked up later. Returns an object
+            representing the known information about this attribute or null of the information already exists.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.adopted.KnownAttributes.Get(System.Guid)">
+      <summary>
+            Retrieve any known information about the attribute with the given GUID
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.advertisement.AdvertisingManufacturerData">
+      <summary>
+            Manufacturer data in an advertising payload
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.advertisement.AdvertisingManufacturerData.#ctor(System.UInt16,System.Byte[])">
+      <summary />
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.AdvertisingManufacturerData.CompanyId">
+      <summary>
+            Company identifiers are unique numbers assigned by the Bluetooth SIG to member companies requesting one.
+            <see href="https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers" /></summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.AdvertisingManufacturerData.Data">
+      <summary>
+            The manufacturer data being advertised
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.advertisement.AdvertisingDataItem">
+      <summary>
+            Advertising Data Structure. A single data item in the 31-byte advertising payload
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.advertisement.AdvertisingDataItem.#ctor(nexus.protocols.ble.advertisement.AdvertisingDataType,System.Byte[])">
+      <summary />
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.AdvertisingDataItem.Data">
+      <summary>
+            The content of this advertising payload
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.AdvertisingDataItem.Type">
+      <summary>
+            The type of an entry in the 31-byte advertising PDU payload.
+            Assigned numbers are used in GAP for inquiry response, EIR data type values, manufacturer-specific data, advertising
+            data, low energy UUIDs and appearance characteristics, and class of device.
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.advertisement.AdvertisingDataType">
+      <summary>
+            The type of an entry in the 31-byte advertising PDU payload.
+            Assigned numbers are used in GAP for inquiry response, EIR data type values, manufacturer-specific data, advertising
+            data, low energy UUIDs and appearance characteristics, and class of device.
+            </summary>
+      <see href="https://www.bluetooth.com/specifications/assigned-numbers/generic-access-profile" />
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.Flags">
+      <summary>
+            Flags for discoverability. <see cref="T:nexus.protocols.ble.advertisement.AdvertisingDataFlags" /></summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.IncompleteServices16">
+      <summary>
+            Incomplete List of 16-bit Service Class UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.CompleteServices16">
+      <summary>
+            Complete List of 16-bit Service Class UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.IncompleteServices32">
+      <summary>
+            Incomplete List of 32-bit Service Class UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.CompleteServices32">
+      <summary>
+            Complete List of 32-bit Service Class UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.IncompleteServices128">
+      <summary>
+            Incomplete List of 128-bit Service Class UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.CompleteServices128">
+      <summary>
+            Complete List of 128-bit Service Class UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ShortenedLocalName">
+      <summary>
+            Shortened Local Name
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.CompleteLocalName">
+      <summary>
+            Complete Local Name
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.TxPowerLevel">
+      <summary>
+            Tx Power Level
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ClassOfDevice">
+      <summary>
+            Class of Device
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.SimplePairingHashC192">
+      <summary>
+            Simple Pairing Hash C-192
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.SimplePairingRandomizerR192">
+      <summary>
+            Simple Pairing Randomizer R-192
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.DeviceId">
+      <summary>
+            Device ID
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.SecurityManagerTkValue">
+      <summary>
+            Security Manager TK Value
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.SecurityManagerOutOfBandFlags">
+      <summary>
+            /Security Manager Out of Band Flags
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.SlaveConnectionIntervalRange">
+      <summary>
+            Slave Connection Interval Range
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ServiceSolicitations16">
+      <summary>
+            List of 16-bit Service Solicitation UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ServiceSolicitations32">
+      <summary>
+            List of 32-bit Service Solicitation UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ServiceSolicitations128">
+      <summary>
+            List of 128-bit Service Solicitation UUIDs
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ServiceData16">
+      <summary>
+            Service Data - 16-bit UUID
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ServiceData32">
+      <summary>
+            Service Data - 32-bit UUID
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ServiceData128">
+      <summary>
+            Service Data - 128-bit UUID
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.LeSecureConnectionsConfirmationValue">
+      <summary>
+            LE Secure Connections Confirmation Value
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.LeSecureConnectionsRandomValue">
+      <summary>
+            LE Secure Connections Random Value
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.Uri">
+      <summary>
+            URI
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.IndoorPositioning">
+      <summary>
+            Indoor Positioning
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.TransportDiscoveryData">
+      <summary>
+            Transport Discovery Data
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.PublicTargetAddress">
+      <summary>
+            Public Target Address
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.RandomTargetAddress">
+      <summary>
+            Random Target Address
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.Appearance">
+      <summary>
+            Appearance
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.AdvertisingInterval">
+      <summary>
+            Advertising Interval
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.LeBluetoothDeviceAddress">
+      <summary>
+            ​LE Bluetooth Device Address
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.LeRole">
+      <summary>
+            LE Role
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.SimplePairingHash">
+      <summary>
+            Simple Pairing Hash C-256
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.SimplePairingRandomizer">
+      <summary>
+            ​Simple Pairing Randomizer R-256
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.InformationData3d">
+      <summary>
+            3D Information Data
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataType.ManufacturerSpecificData">
+      <summary>
+            Manufacturer Specific Data
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.advertisement.AdvertisingDataFlags">
+      <summary>
+            Data value when type is <see cref="F:nexus.protocols.ble.advertisement.AdvertisingDataType.Flags" /></summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataFlags.LimitedDiscoverable">
+      <summary>
+            LE Limited Discoverable Mode.
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataFlags.GeneralDiscoverable">
+      <summary>
+            LE General Discoverable Mode.
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataFlags.BluetoothClassicNotSupported">
+      <summary>
+            Basic Rate/Enhanced Data Rate (BR/EDR) not supported.
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataFlags.DualModeControllerCapable">
+      <summary>
+            Simultaneous Controller for both LE and Basic Rate/Enhanced Data Rate (BR/EDR).
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.advertisement.AdvertisingDataFlags.DualModeHostCapable">
+      <summary>
+            Simultaneous Host for both LE and Basic Rate/Enhanced Data Rate (BR/EDR).
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.advertisement.IBleAdvertisement">
+      <summary>
+            Structured data from a BLE perihperal device's advertisement broadcast (and possible also scan response)
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.IBleAdvertisement.DeviceName">
+      <summary>
+            The name of this device
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.IBleAdvertisement.Flags">
+      <summary>
+            The advertisement flags
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.IBleAdvertisement.ManufacturerSpecificData">
+      <summary>
+            Manufacturer specific data
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.IBleAdvertisement.RawData">
+      <summary>
+            List of the raw bytes of the advertisement fields, if available.
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.IBleAdvertisement.ServiceData">
+      <summary>
+            The service data in this advertisement
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.IBleAdvertisement.Services">
+      <summary>
+            Select services advertised by this peripheral.
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.advertisement.IBleAdvertisement.TxPowerLevel">
+      <summary>
+            The transmission power level of the packet in dBm.
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.EnabledDisabledState">
+      <summary>
+            Represents the state of some entity that can be enabled and disabled
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.EnabledDisabledState.Unknown">
+      <summary>
+            The state of this entity is unknown
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.EnabledDisabledState.Disabled">
+      <summary>
+            The entity is disabled and unavailable for use
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.EnabledDisabledState.Disabling">
+      <summary>
+            The entity is currently transitioning to <see cref="F:nexus.protocols.ble.EnabledDisabledState.Disabled" /></summary>
+    </member>
+    <member name="F:nexus.protocols.ble.EnabledDisabledState.Enabling">
+      <summary>
+            The entity is currently transitioning to <see cref="F:nexus.protocols.ble.EnabledDisabledState.Enabled" /></summary>
+    </member>
+    <member name="F:nexus.protocols.ble.EnabledDisabledState.Enabled">
+      <summary>
+            The entity is aeabled and ready for use
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.connection.BleDeviceConnection">
+      <summary>
+            The results of a connection attempt to a remote BLE device
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.BleDeviceConnection.#ctor(nexus.protocols.ble.connection.ConnectionResult,nexus.protocols.ble.connection.IBleGattServer)">
+      <summary />
+    </member>
+    <member name="P:nexus.protocols.ble.connection.BleDeviceConnection.ConnectionResult">
+      <summary>
+            The result of the connection attempt to a BLE device
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.connection.BleDeviceConnection.GattServer">
+      <summary>
+            The remote GATT server or null, if the connection was unsuccessful
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.connection.ConnectionProgress">
+      <summary>
+            The progress of a remote connection attempt
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionProgress.SearchingForDevice">
+      <summary>
+            SearchingForDevice
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionProgress.Disconnected">
+      <summary>
+            Disconnected
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionProgress.Disconnecting">
+      <summary>
+            Disconnecting
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionProgress.Connecting">
+      <summary>
+            Connecting
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionProgress.Connected">
+      <summary>
+            Connected
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.connection.ConnectionResult">
+      <summary>
+            The result of a remote connection attempt
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionResult.UnknownFailure">
+      <summary>
+            The connection attempt was unsuccessful
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionResult.AdapterDisabled">
+      <summary>
+            The local adapter is disabled and the connection could not be made
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionResult.DeviceNotFound">
+      <summary>
+            The remote device could not be found (prior to the connection attempt stopping) likely because the device is not in
+            range or is not broadcasting.
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionResult.ConnectionAttemptCancelled">
+      <summary>
+            The connection attempt was cancelled (e.g., cancellation token triggered) prior to the connection completing
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionResult.ConnectionNotAllowed">
+      <summary>
+            The remote device does not permit connections
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionResult.Success">
+      <summary>
+            The connection attempt was successful
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.connection.ConnectionState">
+      <summary>
+            The state of a remote connection
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionState.Disconnected">
+      <summary>
+            Disconnected
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionState.Disconnecting">
+      <summary>
+            Disconnecting
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionState.Connecting">
+      <summary>
+            Connecting
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.connection.ConnectionState.Connected">
+      <summary>
+            Connected
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.connection.IBleGattServer">
+      <summary>
+            An active connection to a <see cref="T:nexus.protocols.ble.IBlePeripheral" />. The GATT Server connection is established when
+            a Central device successfully establishes a client/server connection to a Peripheral device.
+            </summary>
+      <see href="https://www.bluetooth.com/specifications/generic-attributes-overview" />
+    </member>
+    <member name="P:nexus.protocols.ble.connection.IBleGattServer.State">
+      <summary>
+            The current state of the connection to the device.
+            Default: <see cref="F:nexus.protocols.ble.connection.ConnectionState.Disconnected" /></summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.ListAllServices">
+      <summary>
+            Enumerate all services on this device
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.ListCharacteristicDescriptors(System.Guid,System.Guid)">
+      <summary>
+            Enumerate all descriptors of the given characteristic. Descriptors are defined attributes that describe
+            a characteristic value.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.ListServiceCharacteristics(System.Guid)">
+      <summary>
+            Enumerate all characteristics of the given service. Characteristics are defined attribute types
+            that contain a single logical value.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.NotifyCharacteristicValue(System.Guid,System.Guid,System.IObserver{System.Tuple{System.Guid,System.Byte[]}})">
+      <summary>
+            Listen for NOTIFY events on this characteristic.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.ReadCharacteristicProperties(System.Guid,System.Guid)">
+      <summary>
+            Read the properties of a characteristic
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.ReadCharacteristicValue(System.Guid,System.Guid)">
+      <summary>
+            Read the current value of a characteristic
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.ReadDescriptorValue(System.Guid,System.Guid,System.Guid)">
+      <summary>
+            Read the current value of this descriptor
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.ServiceExists(System.Guid)">
+      <summary>
+            Check if the given service is present on the device.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.Subscribe(System.IObserver{nexus.protocols.ble.connection.ConnectionState})">
+      <summary>
+            Be notified of changes to <see cref="P:nexus.protocols.ble.connection.IBleGattServer.State" /></summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.WriteCharacteristicValue(System.Guid,System.Guid,System.Byte[])">
+      <summary>
+            Write to this characteristic's value
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.connection.IBleGattServer.WriteDescriptorValue(System.Guid,System.Guid,System.Guid,System.Byte[])">
+      <summary>
+            Write the given value to this descriptor
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.GattAttributeType">
+      <summary>
+            The GATT type a given ATT attribute represents.
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.GattAttributeType.Service">
+      <summary>
+            Represents a GATT service
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.GattAttributeType.Characteristic">
+      <summary>
+            Represents a GATT characteristic
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.GattAttributeType.Descriptor">
+      <summary>
+            Represents a GATT descriptor
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.IAdapterState">
+      <summary>
+            The state of an adapter
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IAdapterState.CurrentState">
+      <summary>
+            True if the adapter is currently enabled and operational
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.IAdapterState.Subscribe(System.IObserver{nexus.protocols.ble.EnabledDisabledState})">
+      <summary>
+            Register an observer to be notified when <see cref="P:nexus.protocols.ble.IAdapterState.CurrentState" /> has changed. This applies to external adapter
+            changes as well as calls made to <see cref="M:nexus.protocols.ble.IAdapterControl.EnableAdapter" /> or
+            <see cref="M:nexus.protocols.ble.IAdapterControl.DisableAdapter" />.
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.IAdapterControl">
+      <summary>
+            The state of an adapter and controls to enable or disable it
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IAdapterControl.AdapterCanBeDisabled">
+      <summary>
+        <c>true</c> if the current platform allows disabling this adapter
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IAdapterControl.AdapterCanBeEnabled">
+      <summary>
+        <c>true</c> if the current platform allows enabling this adapter
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.IAdapterControl.DisableAdapter">
+      <summary>
+            Disable this adapter system-wide
+            </summary>
+      <returns>
+        <c>true</c> if the operation succeeded in disabling the adapter</returns>
+    </member>
+    <member name="M:nexus.protocols.ble.IAdapterControl.EnableAdapter">
+      <summary>
+            Enable this adapter system-wide
+            </summary>
+      <returns>
+        <c>true</c> if the operation succeeded in enabling the adapter</returns>
+    </member>
+    <member name="T:nexus.protocols.ble.IGattAttribute">
+      <summary>
+            A GUID and type that represents a GATT attribute
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IGattAttribute.Description">
+      <summary>
+            A human-friendly description for this service, if available
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IGattAttribute.Id">
+      <summary>
+            The unique UUID for this attribute
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IGattAttribute.Type">
+      <summary>
+            The GATT type of this ATT attribute: service, characteristic, or descriptor
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.IScanFilter">
+      <summary>
+            Filter to provide to
+            <see cref="M:nexus.protocols.ble.IBluetoothLowEnergyAdapter.ScanForBroadcasts(nexus.protocols.ble.ScanFilter,System.IObserver{nexus.protocols.ble.IBlePeripheral},System.Threading.CancellationToken)" />
+            which will only report found devices that match the filter. See: See <see cref="T:nexus.protocols.ble.ScanFilter.Factory" /></summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IScanFilter.AdvertisedDeviceName">
+      <summary>
+            The broadcast advertisement is displaying this device name
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IScanFilter.AdvertisedManufacturerCompanyId">
+      <summary>
+            The broadcast advertisement has manufacturer data matching this company id
+            <see href="https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers" /></summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IScanFilter.AdvertisedServiceIsInList">
+      <summary>
+            The broadcast advertisement lists a service that is contained in this list.
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IScanFilter.IgnoreRepeatBroadcasts">
+      <summary>
+            Each discovered device will be provided to your observer once, and any additional broadcasts detected during this scan
+            will be ignored.
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.BluetoothLowEnergyUtils">
+      <summary>
+            Utility methods for BLE
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultConnectionTimeout">
+      <summary>
+            The default connection timeout used if no timeout is provided, 5 seconds.
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultScanTimeout">
+      <summary>
+            The default time to scan if no timeout is provided, 15 seconds.
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.BluetoothLowEnergyUtils.s_adoptedKeyBase">
+      <summary>
+        <c>0000xxxx-0000-1000-8000-00805f9b34fb</c>
+      </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.AddressToGuid(System.Byte[])">
+      <summary>
+            Convert a 6-byte (48-bit) MAC address to the trailing 6-bytes of a GUID
+            </summary>
+      <param name="address" />
+      <returns />
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CanIndicate(nexus.protocols.ble.CharacteristicProperty)">
+      <summary>
+            Return true if <see cref="F:nexus.protocols.ble.CharacteristicProperty.Indicate" /> is set on this characteristic
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CanNotify(nexus.protocols.ble.CharacteristicProperty)">
+      <summary>
+            Return true if <see cref="F:nexus.protocols.ble.CharacteristicProperty.Notify" /> is set on this characteristic
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CanRead(nexus.protocols.ble.CharacteristicProperty)">
+      <summary>
+            Return true if <see cref="F:nexus.protocols.ble.CharacteristicProperty.Read" /> is set on this characteristic
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CanWrite(nexus.protocols.ble.CharacteristicProperty)">
+      <summary>
+            Return true if <see cref="F:nexus.protocols.ble.CharacteristicProperty.Write" /> or <see cref="F:nexus.protocols.ble.CharacteristicProperty.WriteNoResponse" /> are
+            set on this characteristic
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CreateGuidFromAdoptedKey(System.Int16)">
+      <summary>
+            Create a <see cref="T:System.Guid" /> from a Bluetooth Special Interest Group adopted key
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CreateGuidFromAdoptedKey(System.UInt16)">
+      <summary>
+            Create a <see cref="T:System.Guid" /> from a Bluetooth Special Interest Group adopted key
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CreateGuidFromAdoptedKey(System.String)">
+      <summary>
+            Create a <see cref="T:System.Guid" /> from a Bluetooth Special Interest Group adopted key
+            </summary>
+      <exception cref="T:System.ArgumentNullException">If the provided value is null</exception>
+      <exception cref="T:System.ArgumentException">If the provided value is not 4 characters in length</exception>
+      <exception cref="T:System.FormatException">If the provided value cannot be parsed to a Guid</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="adoptedKey != null" vb="adoptedKey &lt;&gt; Nothing">adoptedKey != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adoptedKey == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.IsReservedKey(System.Guid)">
+      <summary>
+            Returns <c>true</c> if <paramref name="id" /> is a Bluetooth SIG reserved GUID
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.IsSuccessful(nexus.protocols.ble.connection.BleDeviceConnection)">
+      <summary>
+            True if this <see cref="T:nexus.protocols.ble.connection.BleDeviceConnection" /> resulted in <see cref="F:nexus.protocols.ble.connection.ConnectionResult.Success" /></summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.NotifyCharacteristicValue(nexus.protocols.ble.connection.IBleGattServer,System.Guid,System.Guid,System.Action{System.Tuple{System.Guid,System.Byte[]}},System.Action{System.Exception})">
+      <summary>
+            Listen for NOTIFY events on this characteristic.
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="server != null" vb="server &lt;&gt; Nothing">server != null</requires>
+      <exception cref="T:System.ArgumentNullException"> server == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.NotifyCharacteristicValue(nexus.protocols.ble.connection.IBleGattServer,System.Guid,System.Guid,System.Action{System.Byte[]},System.Action{System.Exception})">
+      <summary>
+            Listen for NOTIFY events on this characteristic.
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="(() =&gt; {
+    {
+        new nexus.protocols.ble.BluetoothLowEnergyUtils.&lt;&gt;c__DisplayClass14_0().onNotify = onNotify;
+    }
+    return server != null; })()" vb="(() =&gt; {
+    New nexus.protocols.ble.BluetoothLowEnergyUtils.&lt;&gt;c__DisplayClass14_0().onNotify = onNotify
+    return server &lt;&gt; Nothing; })()">(() =&gt; {
+    {
+        new nexus.protocols.ble.BluetoothLowEnergyUtils.&lt;&gt;c__DisplayClass14_0().onNotify = onNotify;
+    }
+    return server != null; })()</requires>
+      <exception cref="T:System.ArgumentNullException"> server == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyUtils.ParseAdvertisingPayloadData(System.Byte[])">
+      <summary>
+            Parse <c>advD</c> payload data from advertising packet. You should never need to call this from client code, platform
+            libraries should handle it.
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.CharacteristicProperty">
+      <summary>
+            Property flags for GATT characteristics. See utility methods: <see cref="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CanIndicate(nexus.protocols.ble.CharacteristicProperty)" />,
+            <see cref="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CanNotify(nexus.protocols.ble.CharacteristicProperty)" />, <see cref="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CanRead(nexus.protocols.ble.CharacteristicProperty)" />,
+            <see cref="M:nexus.protocols.ble.BluetoothLowEnergyUtils.CanWrite(nexus.protocols.ble.CharacteristicProperty)" /></summary>
+      <remarks>
+            Take note that these properties are for the characteristic in the GATT layer,
+            these are not *permissions* which are in the ATT layer.
+            </remarks>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicProperty.Broadcast">
+      <summary>
+            If set, permists broadcast of the characteristic value using Server Characteristic Confiuguration Descriptor
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicProperty.Read">
+      <summary>
+            If set, permists read of the characteristic value
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicProperty.WriteNoResponse">
+      <summary>
+            If set, permists writes of the characteristic value without response
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicProperty.Write">
+      <summary>
+            If set, permists writes of the characteristic value with response
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicProperty.Notify">
+      <summary>
+            If set, permists notifications of a characteristic value without acknowledgement
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicProperty.Indicate">
+      <summary>
+            If set, permists indications of a characteristic value with acknowledgement
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicProperty.SignedWrite">
+      <summary>
+            If set, permists signed writes to the characteristic value
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicProperty.ExtendedProperties">
+      <summary>
+            If set, additional characteristic properties are defined
+            </summary>
+      <see cref="T:nexus.protocols.ble.CharacteristicExtendedProperty" />
+    </member>
+    <member name="T:nexus.protocols.ble.CharacteristicExtendedProperty">
+      <summary>
+            Extended Property flags for GATT characteristics
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicExtendedProperty.NotifyEncryptionRequired">
+      <summary>
+            NotifyEncryptionRequired
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.CharacteristicExtendedProperty.IndicateEncryptionRequired">
+      <summary>
+            IndicateEncryptionRequired
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.GattException">
+      <summary>
+            An exception at the GATT layer (includes errors as a result of disconnection from a device)
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.GattException.#ctor(System.String,System.Exception)">
+      <summary />
+    </member>
+    <member name="M:nexus.protocols.ble.GattException.#ctor(System.String,System.Guid)">
+      <summary />
+    </member>
+    <member name="M:nexus.protocols.ble.GattException.#ctor(System.String,System.Guid,System.Guid)">
+      <summary />
+    </member>
+    <member name="M:nexus.protocols.ble.GattException.#ctor(System.String,System.Guid,System.Guid,System.Guid)">
+      <summary />
+    </member>
+    <member name="P:nexus.protocols.ble.GattException.Characteristic">
+      <summary>
+            The characteristic involved in the exception, if there was one.
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.GattException.Descriptor">
+      <summary>
+            The descriptor involved in the exception, if there was one.
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.GattException.Service">
+      <summary>
+            The service involved in the exception, if there was one.
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.IBluetoothLowEnergyAdapter">
+      <summary>
+            This is the entry point for all Bluetooth Low Energy functionality, use the platform-specific implementation of this
+            interface to instantiate it. Use a <see cref="T:nexus.protocols.ble.IBluetoothLowEnergyAdapter" /> to scan for BLE advertisements and connect
+            to found devices.
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IBluetoothLowEnergyAdapter.State">
+      <summary>
+            The state of this BLE adapter and controls to enable or disable it
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.IBluetoothLowEnergyAdapter.ConnectToDevice(nexus.protocols.ble.IBlePeripheral,System.Threading.CancellationToken,System.IProgress{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Attempt to connect to the provided <paramref name="device" />, and continue the attempt until <paramref name="ct" /> is
+            cancelled.
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.IBluetoothLowEnergyAdapter.ConnectToDevice(System.Guid,System.Threading.CancellationToken,System.IProgress{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Attempt to find and connect to the device with given ID, and continue the attempt until <paramref name="ct" /> is
+            cancelled. (see <see cref="P:nexus.protocols.ble.IBlePeripheral.DeviceId" /> for more information on how <paramref name="id" /> relates to
+            the device's MAC address)
+            </summary>
+    </member>
+    <member name="M:nexus.protocols.ble.IBluetoothLowEnergyAdapter.ScanForBroadcasts(System.IObserver{nexus.protocols.ble.IBlePeripheral},System.Threading.CancellationToken)">
+      <summary>
+            Scan for nearby BLE device advertisements. The devices discovered are not guaranteed to be unique, i.e. -- each device
+            will likely be provided to the observer multiple times as the BLE scanner picks up advertisements.
+            </summary>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="ct">Scan will run continuously until this token is cancelled</param>
+    </member>
+    <member name="M:nexus.protocols.ble.IBluetoothLowEnergyAdapter.ScanForBroadcasts(nexus.protocols.ble.ScanFilter,System.IObserver{nexus.protocols.ble.IBlePeripheral},System.Threading.CancellationToken)">
+      <summary>
+            Scan for nearby BLE device advertisements that match <paramref name="filter" />. The devices discovered are not
+            guaranteed to be unique, i.e. -- each device
+            will likely be provided to the observer multiple times as the BLE scanner picks up advertisements.
+            </summary>
+      <param name="filter">
+            Scan filter that will ignore broadcast advertisements that do not match. see:
+            <see cref="T:nexus.protocols.ble.ScanFilter.Factory" /></param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="ct">Scan will run continuously until this token is cancelled</param>
+    </member>
+    <member name="T:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions">
+      <summary>
+            Extension methods for <see cref="T:nexus.protocols.ble.IBluetoothLowEnergyAdapter" /></summary>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ConnectToDevice(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.Guid,System.TimeSpan,System.IProgress{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Attempt to find and connect to the given device by MAC address (6 bytes). Timeout if the connection is not obtained in
+            the provided time
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ConnectToDevice(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.Guid,System.TimeSpan,System.Action{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Attempt to find and connect to the given device by MAC address (6 bytes). Timeout if the connection is not obtained in
+            the provided time
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ConnectToDevice(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.Guid,System.IProgress{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Attempt to find and connect to the given device by MAC address (6 bytes). Timeout after the default time;
+            <see cref="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultConnectionTimeout" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ConnectToDevice(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.Guid,System.Action{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Attempt to find and connect to the given device by MAC address (6 bytes). Timeout after the default time;
+            <see cref="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultConnectionTimeout" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ConnectToDevice(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.IBlePeripheral,System.TimeSpan,System.IProgress{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Connect to a discovered <see cref="T:nexus.protocols.ble.IBlePeripheral" />. Timeout if the connection is not obtained in
+            the provided time
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ConnectToDevice(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.IBlePeripheral,System.TimeSpan,System.Action{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Connect to a discovered <see cref="T:nexus.protocols.ble.IBlePeripheral" />. Timeout if the connection is not obtained in
+            the provided time
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ConnectToDevice(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.IBlePeripheral,System.IProgress{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Connect to a discovered <see cref="T:nexus.protocols.ble.IBlePeripheral" />. Timeout after the default time;
+            <see cref="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultConnectionTimeout" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ConnectToDevice(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.IBlePeripheral,System.Action{nexus.protocols.ble.connection.ConnectionProgress})">
+      <summary>
+            Connect to a discovered <see cref="T:nexus.protocols.ble.IBlePeripheral" />. Timeout after the default time;
+            <see cref="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultConnectionTimeout" /></summary>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.IObserver{nexus.protocols.ble.IBlePeripheral},System.TimeSpan)">
+      <summary>
+            Scan for nearby BLE device advertisements. Stop scanning after <paramref name="timeout" /></summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="timeout">cancel scan after this length of time</param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.ScanFilter,System.IObserver{nexus.protocols.ble.IBlePeripheral},System.TimeSpan)">
+      <summary>
+            Scan for nearby BLE device advertisements that match <paramref name="filter" />. Stop scanning after
+            <paramref name="timeout" /></summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="timeout">cancel scan after this length of time</param>
+      <param name="filter">
+            Scan filter that will ignore broadcast advertisements that do not match.
+            <see cref="T:nexus.protocols.ble.ScanFilter.Factory" /></param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.IObserver{nexus.protocols.ble.IBlePeripheral})">
+      <summary>
+            Scan for nearby BLE device advertisements. Stop scanning after
+            <see cref="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultScanTimeout" /></summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.ScanFilter,System.IObserver{nexus.protocols.ble.IBlePeripheral})">
+      <summary>
+            Scan for nearby BLE device advertisements that match <paramref name="filter" />. Stop scanning after
+            <see cref="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultScanTimeout" /></summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="filter">
+            Scan filter that will ignore broadcast advertisements that do not match.
+            <see cref="T:nexus.protocols.ble.ScanFilter.Factory" /></param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.Action{nexus.protocols.ble.IBlePeripheral},System.Threading.CancellationToken)">
+      <summary>
+            Scan for nearby BLE device advertisements. Stop scanning when <paramref name="token" /> is cancelled.
+            </summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="token">Scan until this token is cancelled</param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.Action{nexus.protocols.ble.IBlePeripheral},System.TimeSpan)">
+      <summary>
+            Scan for nearby BLE device advertisements. Stop scanning after <paramref name="timeout" /></summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="timeout">cancel scan after this length of time</param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,System.Action{nexus.protocols.ble.IBlePeripheral})">
+      <summary>
+            Scan for nearby BLE device advertisements. Stop scanning after
+            <see cref="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultScanTimeout" /></summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.ScanFilter,System.Action{nexus.protocols.ble.IBlePeripheral},System.Threading.CancellationToken)">
+      <summary>
+            Scan for nearby BLE device advertisements that match <paramref name="filter" />. Stop scanning when
+            <paramref name="ct" /> is cancelled.
+            </summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="filter">
+            Scan filter that will ignore broadcast advertisements that do not match.
+            <c>new ScanFilter.Factory(){}.CreateFilter()</c></param>
+      <param name="ct">Scan will run continuously until this token is cancelled</param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.ScanFilter,System.Action{nexus.protocols.ble.IBlePeripheral},System.TimeSpan)">
+      <summary>
+            Scan for nearby BLE device advertisements that match <paramref name="filter" />. Stop scanning after
+            <paramref name="timeout" /></summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="timeout">cancel scan after this length of time</param>
+      <param name="filter">
+            Scan filter that will ignore broadcast advertisements that do not match.
+            <c>new ScanFilter.Factory(){}.CreateFilter()</c></param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="M:nexus.protocols.ble.BluetoothLowEnergyAdapterExtensions.ScanForBroadcasts(nexus.protocols.ble.IBluetoothLowEnergyAdapter,nexus.protocols.ble.ScanFilter,System.Action{nexus.protocols.ble.IBlePeripheral})">
+      <summary>
+            Scan for nearby BLE device advertisements that match <paramref name="filter" />. Stop scanning after
+            <see cref="F:nexus.protocols.ble.BluetoothLowEnergyUtils.DefaultScanTimeout" /></summary>
+      <param name="adapter">The adapter to use for scanning</param>
+      <param name="advertisementDiscovered">Callback to notify for each discovered advertisement</param>
+      <param name="filter">
+            Scan filter that will ignore broadcast advertisements that do not match.
+            <c>new ScanFilter.Factory(){}.CreateFilter()</c></param>
+      <requires exception="T:System.ArgumentNullException" csharp="adapter != null" vb="adapter &lt;&gt; Nothing">adapter != null</requires>
+      <exception cref="T:System.ArgumentNullException"> adapter == null </exception>
+    </member>
+    <member name="T:nexus.protocols.ble.IBlePeripheral">
+      <summary>
+            A discovered BLE peripheral device and the advertising data it is broadcasting
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IBlePeripheral.Address">
+      <summary>
+            The <see cref="T:nexus.protocols.ble.IBlePeripheral" />'s 6-byte MAC address, or an empty byte array if the address is unavailable or not
+            provided on the platform (e.g., iOS). If you want to re-discover this <see cref="T:nexus.protocols.ble.IBlePeripheral" />, see
+            <see cref="P:nexus.protocols.ble.IBlePeripheral.DeviceId" />.
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IBlePeripheral.AddressIsRandom">
+      <summary>
+        <c>true</c> if the advertised <see cref="P:nexus.protocols.ble.IBlePeripheral.Address" /> is a randomly generated value, <c>false</c> if
+            <see cref="P:nexus.protocols.ble.IBlePeripheral.Address" /> is a
+            fixed MAC address, <c>null</c> if the underlying platform does not provide this information (i.e., it could be either
+            random or a MAC address)
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IBlePeripheral.Advertisement">
+      <summary>
+            The advertising data in the peripheral's advertising broadcast.
+            </summary>
+    </member>
+    <member name="P:nexus.protocols.ble.IBlePeripheral.DeviceId">
+      <summary>
+            A unique identifier for this <see cref="T:nexus.protocols.ble.IBlePeripheral" /> that can be used to discover it again.
+            </summary>
+      <remarks>
+            Note that this value can be inconsistent between platforms (iOS, for example provides random IDs that are unique to the
+            given iPhone/iPad/etc), so you cannot share <see cref="P:nexus.protocols.ble.IBlePeripheral.DeviceId" /> between iOS and Android/UWP
+            app to discover the same <see cref="T:nexus.protocols.ble.IBlePeripheral" />.
+            </remarks>
+    </member>
+    <member name="P:nexus.protocols.ble.IBlePeripheral.Rssi">
+      <summary>
+            Received signal strenth indicator, in decibels
+            </summary>
+    </member>
+    <member name="T:nexus.protocols.ble.ScanFilter">
+      <summary>
+            Filter used when scanning for broadcasts. If broadcast advertisements do not match the scan filter, they will not be
+            reported to your observer. See <see cref="T:nexus.protocols.ble.ScanFilter.Factory" />.
+            </summary>
+    </member>
+    <member name="F:nexus.protocols.ble.ScanFilter.UniqueBroadcastsOnly">
+      <summary>
+            Each discovered device will be provided to your observer once, and any additional broadcasts detected during this scan
+            will be ignored.
+            </summary>
+      <remarks>Syntax sugar for <c>new ScanFilter.Factory {IgnoreRepeatBroadcasts = true}.CreateFilter()</c></remarks>
+    </member>
+    <member name="P:nexus.protocols.ble.ScanFilter.AdvertisedDeviceName">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.protocols.ble.ScanFilter.AdvertisedManufacturerCompanyId">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.protocols.ble.ScanFilter.AdvertisedServiceIsInList">
+      <inheritdoc />
+    </member>
+    <member name="P:nexus.protocols.ble.ScanFilter.IgnoreRepeatBroadcasts">
+      <inheritdoc />
+    </member>
+    <member name="M:nexus.protocols.ble.ScanFilter.Passes(nexus.protocols.ble.advertisement.IBleAdvertisement)">
+      <summary>
+            Returns true if the provided advertisement passes the scan filter
+            </summary>
+      <param name="advertisement" />
+      <returns />
+    </member>
+    <member name="T:nexus.protocols.ble.ScanFilter.Factory">
+      <summary>
+            Factory to create a new <see cref="T:nexus.protocols.ble.ScanFilter" /></summary>
+    </member>
+    <member name="P:nexus.protocols.ble.ScanFilter.Factory.AdvertisedDeviceName">
+      <inheritdoc cref="P:nexus.protocols.ble.IScanFilter.AdvertisedDeviceName" />
+    </member>
+    <member name="P:nexus.protocols.ble.ScanFilter.Factory.AdvertisedManufacturerCompanyId">
+      <inheritdoc cref="P:nexus.protocols.ble.IScanFilter.AdvertisedManufacturerCompanyId" />
+    </member>
+    <member name="P:nexus.protocols.ble.ScanFilter.Factory.AdvertisedServiceIsInList">
+      <inheritdoc cref="P:nexus.protocols.ble.IScanFilter.AdvertisedServiceIsInList" />
+    </member>
+    <member name="P:nexus.protocols.ble.ScanFilter.Factory.IgnoreRepeatBroadcasts">
+      <inheritdoc cref="P:nexus.protocols.ble.IScanFilter.IgnoreRepeatBroadcasts" />
+    </member>
+    <member name="M:nexus.protocols.ble.ScanFilter.Factory.AddAdvertisedService(System.Guid)">
+      <inheritdoc cref="P:nexus.protocols.ble.IScanFilter.AdvertisedServiceIsInList" />
+    </member>
+    <member name="M:nexus.protocols.ble.ScanFilter.Factory.CreateFilter">
+      <summary>
+            Create a new <see cref="T:nexus.protocols.ble.ScanFilter" /> with the provided <see cref="T:nexus.protocols.ble.ScanFilter.Factory" /></summary>
+    </member>
+    <member name="M:nexus.protocols.ble.ScanFilter.Factory.SetAdvertisedDeviceName(System.String)">
+      <inheritdoc cref="P:nexus.protocols.ble.IScanFilter.AdvertisedDeviceName" />
+    </member>
+    <member name="M:nexus.protocols.ble.ScanFilter.Factory.SetAdvertisedManufacturerCompanyId(System.Nullable{System.UInt16})">
+      <inheritdoc cref="P:nexus.protocols.ble.IScanFilter.AdvertisedManufacturerCompanyId" />
+    </member>
+    <member name="M:nexus.protocols.ble.ScanFilter.Factory.SetIgnoreRepeatBroadcasts(System.Boolean)">
+      <inheritdoc cref="P:nexus.protocols.ble.IScanFilter.IgnoreRepeatBroadcasts" />
+    </member>
+    <member name="M:nexus.protocols.ble.ScanFilter.Factory.op_Implicit(nexus.protocols.ble.ScanFilter.Factory)~nexus.protocols.ble.ScanFilter">
+      <summary>
+            Create scan filter from factory so we can pass it in without requiring consumers to call CreateFilter
+            </summary>
+    </member>
+  </members>
+</doc>
