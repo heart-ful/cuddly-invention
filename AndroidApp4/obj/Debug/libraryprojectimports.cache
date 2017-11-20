@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+  <Jars>D:\cuddly-invention\AndroidApp4\obj\Debug\__library_projects__\PdfViewBinding\library_project_imports\bin\android-pdfview.jar</Jars>
+  <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>D:\cuddly-invention\AndroidApp4\obj\Debug\__library_projects__\PDFRenderer\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>D:\cuddly-invention\AndroidApp4\obj\Debug\__library_projects__\PdfViewBinding\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>D:\cuddly-invention\AndroidApp4\obj\Debug\__library_projects__\Robotics.Mobile.Core.Droid\library_project_imports\res</ResolvedResourceDirectory>
+  </ResolvedResourceDirectories>
+  <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>obj\Debug\__library_projects__\PDFRenderer\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Robotics.Mobile.Core.Droid\library_project_imports\assets</ResolvedAssetDirectory>
+  </ResolvedAssetDirectories>
+  <ResolvedEnvironmentFiles />
+  <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>D:\cuddly-invention\AndroidApp4\obj\Debug\__library_projects__\PDFRenderer.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>D:\cuddly-invention\AndroidApp4\obj\Debug\__library_projects__\PdfViewBinding.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>D:\cuddly-invention\AndroidApp4\obj\Debug\__library_projects__\Robotics.Mobile.Core.Droid.stamp</ResolvedResourceDirectoryStamp>
+  </ResolvedResourceDirectoryStamps>
+</Paths>

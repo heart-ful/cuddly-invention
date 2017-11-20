@@ -26,6 +26,18 @@ namespace AndroidApp4
 		
 		public static void UpdateIdValues()
 		{
+			global::PDFRenderer.Resource.Drawable.NextBtn = global::AndroidApp4.Resource.Drawable.NextBtn;
+			global::PDFRenderer.Resource.Drawable.PreviousBtn = global::AndroidApp4.Resource.Drawable.PreviousBtn;
+			global::PDFRenderer.Resource.Id.backButton = global::AndroidApp4.Resource.Id.backButton;
+			global::PDFRenderer.Resource.Id.documentRelativeView = global::AndroidApp4.Resource.Id.documentRelativeView;
+			global::PDFRenderer.Resource.Id.documentViewMessage = global::AndroidApp4.Resource.Id.documentViewMessage;
+			global::PDFRenderer.Resource.Id.forwardButton = global::AndroidApp4.Resource.Id.forwardButton;
+			global::PDFRenderer.Resource.Id.pageCount = global::AndroidApp4.Resource.Id.pageCount;
+			global::PDFRenderer.Resource.Id.pdfView = global::AndroidApp4.Resource.Id.pdfView;
+			global::PDFRenderer.Resource.Id.progressBar = global::AndroidApp4.Resource.Id.progressBar;
+			global::PDFRenderer.Resource.Layout.DocumentView = global::AndroidApp4.Resource.Layout.DocumentView;
+			global::PDFRenderer.Resource.String.ApplicationName = global::AndroidApp4.Resource.String.ApplicationName;
+			global::PDFRenderer.Resource.String.Hello = global::AndroidApp4.Resource.String.Hello;
 			global::Robotics.Mobile.Core.Resource.String.library_name = global::AndroidApp4.Resource.String.library_name;
 		}
 		
@@ -48,6 +60,15 @@ namespace AndroidApp4
 			// aapt resource value: 0x7f020000
 			public const int Icon = 2130837504;
 			
+			// aapt resource value: 0x7f020001
+			public const int map = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int NextBtn = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int PreviousBtn = 2130837507;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -61,14 +82,35 @@ namespace AndroidApp4
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int ButtonSearchBle = 2131034112;
+			// aapt resource value: 0x7f050007
+			public const int ImageButton = 2131034119;
 			
-			// aapt resource value: 0x7f050002
-			public const int ConnectionResult = 2131034114;
+			// aapt resource value: 0x7f050004
+			public const int backButton = 2131034116;
+			
+			// aapt resource value: 0x7f050009
+			public const int demoImageView = 2131034121;
+			
+			// aapt resource value: 0x7f050003
+			public const int documentRelativeView = 2131034115;
 			
 			// aapt resource value: 0x7f050001
-			public const int TextBoxResults = 2131034113;
+			public const int documentViewMessage = 2131034113;
+			
+			// aapt resource value: 0x7f050006
+			public const int forwardButton = 2131034118;
+			
+			// aapt resource value: 0x7f050005
+			public const int pageCount = 2131034117;
+			
+			// aapt resource value: 0x7f050002
+			public const int pdfView = 2131034114;
+			
+			// aapt resource value: 0x7f050000
+			public const int progressBar = 2131034112;
+			
+			// aapt resource value: 0x7f050008
+			public const int textbutton = 2131034120;
 			
 			static Id()
 			{
@@ -84,7 +126,10 @@ namespace AndroidApp4
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int DocumentView = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Main = 2130903041;
 			
 			static Layout()
 			{

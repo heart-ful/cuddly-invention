@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.IO;
 using Android.App;
 using Android.Bluetooth;
 using Android.Bluetooth.LE;
@@ -8,76 +8,38 @@ using Android.Widget;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using Adapter = Robotics.Mobile.Core.Bluetooth.LE.Adapter;
 using Java.Util;
+using Android.Content;
 
 namespace AndroidApp4
 {
     [Activity(Label = "Search BLE devices", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        private Button _buttonScanBle;
-        private BluetoothManager _manager;
-        private BluetoothAdapter _adapter;
-        private BluetoothLeScanner _bleScanner;
-        private Adapter _bleAdapter;
-        private EditText _textboxResults;
-        private EditText _connectionresult;
+        
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
             SetContentView(Resource.Layout.Main);
-            _buttonScanBle = FindViewById<Button>(Resource.Id.ButtonSearchBle);
-            _textboxResults = FindViewById<EditText>(Resource.Id.TextBoxResults);
-            _connectionresult = FindViewById<EditText>(Resource.Id.ConnectionResult);
-            _buttonScanBle.Click += ButtonScanBleClick;
 
-            var appContext = Application.Context;
-            _manager = (BluetoothManager)appContext.GetSystemService(BluetoothService); // ("bluetooth");
-            _adapter = _manager.Adapter;
+            Button imagebutton = FindViewById<Button>(Resource.Id.ImageButton);
+            ImageView imageView = FindViewById<ImageView>(Resource.Id.demoImageView);
+            Button filebutton = FindViewById<Button>(Resource.Id.textbutton);
 
-            _bleAdapter = new Adapter();
-            _bleAdapter.DeviceDiscovered += _bleAdapter_DeviceDiscovered;
-            _bleAdapter.ScanTimeoutElapsed += _bleAdapter_ScanTimeoutElapsed;
+            imagebutton.Click += delegate
+            {
+                imageView.SetImageResource(Resource.Drawable.map);
+            };
 
-            BluetoothDevice device = _adapter.BondedDevices.SingleOrDefault(bd =>
-                                      bd.Name.Contains("CooSpo"));
+            filebutton.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(MyTextActivity));
+                StartActivity(intent);
+            };
 
-            if (device == null)
-                throw new Exception("Named device not found.");
-           
-             _connectionresult.Text = string.Format(@"the address is", device.Address);
-            
-            
 
-            BluetoothSocket _socket = device.CreateRfcommSocketToServiceRecord(UUID.FromString("eb4b89805b9f"));
-            
-        }
 
-        private void _bleAdapter_ScanTimeoutElapsed(object sender, EventArgs e)
-        {
-            _bleAdapter.StopScanningForDevices();
-            DisplayInformation("Bluetooth scan timeout elapsed, no ble devices were found");
-        }
-
-        private void _bleAdapter_DeviceDiscovered(object sender, DeviceDiscoveredEventArgs e)
-        {
-            var msg = string.Format(@"Device found: {0} and
-    {1}", e.Device.Name, e.Device.ID);
-            DisplayInformation(msg);
-            
-        }
-
-        private void ButtonScanBleClick(object sender, EventArgs e)
-        {
-            if (!_bleAdapter.IsScanning)
-                _bleAdapter.StartScanningForDevices();
-        }
-
-        private void DisplayInformation(string line)
-        {
-            _textboxResults.Text = $"{line}\r\n{_textboxResults.Text}";
-            Console.WriteLine(line);
-            
         }
     }
 }

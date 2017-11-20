@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
-  <ManifestDocuments />
+  <ManifestDocuments>
+    <ManifestDocument>obj\Release\__library_projects__\PdfViewBinding\library_project_imports\AndroidManifest.xml</ManifestDocument>
+  </ManifestDocuments>
   <NativeLibraries />
-  <Jars />
+  <Jars>
+    <Jar>obj\Release\__library_projects__\PdfViewBinding\library_project_imports\bin\android-pdfview.jar</Jar>
+  </Jars>
 </Paths>

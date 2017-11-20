@@ -1,0 +1,4 @@
+layout/DocumentView.axml;layout/documentview.xml
+Values/Strings.xml;values/strings.xml
+drawable/PreviousBtn.png;drawable/previousbtn.png
+drawable/NextBtn.png;drawable/nextbtn.png

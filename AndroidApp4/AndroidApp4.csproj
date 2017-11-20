@@ -46,6 +46,12 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Components\Monkey.Robotics-0.5.2\lib\android\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PDFRenderer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFReader.Xamarin.1.0.0\lib\MonoAndroid\PDFRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfViewBinding, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.PdfView.Android.1.0.4\lib\PdfViewBinding.dll</HintPath>
+    </Reference>
     <Reference Include="Robotics.Mobile.Core">
       <HintPath>..\Components\Monkey.Robotics-0.5.2\lib\android\Robotics.Mobile.Core.dll</HintPath>
     </Reference>
@@ -59,16 +65,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeviceStream.cs" />
+    <Compile Include="LoadResourceText.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MyTextActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoutedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\diethyl sulfide paper.pdf" />
+    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\layout\Main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -86,7 +97,10 @@
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <AndroidResource Include="Resources\drawable\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\test.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -49,38 +49,11 @@ namespace AndroidApp4
 
         public override long Length => throw new NotImplementedException();
 
-        //NOW THE METHODS!!!!
-
-        //to begin an read operation.
-
-        //the textview that will 
-
-        //As i click on a button that says show data 
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string filename = @"c:\Temp\userinputlog.txt"; //this can be the socket or device 
-            byte[] result; //where the data goes in the meantime
-
-            using (FileStream SourceStream = File.Open(filename, FileMode.Open)) //filename can be replaced by socket 
-            {
-                result = new byte[SourceStream.Length];
-                await SourceStream.ReadAsync(result, 0, (int)SourceStream.Length);
-            }
-
-            // graph instead of userinput UserInput.Text = System.Text.Encoding.ASCII.GetString(result);
-        }
+        public string InputDevice { get; private set; }
 
 
 
-
-        //to begin a write method, ie adding what i read to a page 
-        public virtual void  WriteFileAsync()
-        {
-            StreamWriter writer = new StreamWriter(@"name of page that will display it ");
-            writer.WriteLine("the data in bytes");
-            writer.Close();
-           
-        }
+       
     }
 
 

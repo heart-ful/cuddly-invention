@@ -4,18 +4,18 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <Button
-        android:id="@+id/ButtonSearchBle"
+        android:id="@+id/ImageButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Search BLEs devices" />
-    <EditText
-        android:inputType="textMultiLine"
+        android:text="seeimage" />
+    <Button
+        android:text="see from text file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TextBoxResults" />
-    <EditText
-        android:text="Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ConnectionResult" />
+        android:id="@+id/textbutton" />
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/demoImageView"
+        android:src="@drawable/map" />
 </LinearLayout>
