@@ -83,11 +83,11 @@ namespace AndroidApp4
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060014
-			public const int ButtonSearchBle = 2131099668;
-			
 			// aapt resource value: 0x7f060015
-			public const int TextBoxResults = 2131099669;
+			public const int ButtonSearchBle = 2131099669;
+			
+			// aapt resource value: 0x7f060016
+			public const int TextBoxResults = 2131099670;
 			
 			// aapt resource value: 0x7f060002
 			public const int blue = 2131099650;
@@ -128,8 +128,8 @@ namespace AndroidApp4
 			// aapt resource value: 0x7f060007
 			public const int progressBar1 = 2131099655;
 			
-			// aapt resource value: 0x7f060016
-			public const int relativeLayout1 = 2131099670;
+			// aapt resource value: 0x7f060014
+			public const int relativeLayout1 = 2131099668;
 			
 			// aapt resource value: 0x7f060000
 			public const int relativeLayout2 = 2131099648;

@@ -7,7 +7,8 @@ using Android.OS;
 using Android.Widget;
 using Robotics.Mobile.Core.Bluetooth.LE;
 using Adapter = Robotics.Mobile.Core.Bluetooth.LE.Adapter;
-using Java.Util;
+
+using Android.Content;
 
 namespace AndroidApp4
 {
@@ -24,6 +25,10 @@ namespace AndroidApp4
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            Button Home = FindViewById<Button>(Resource.Id.button1);
+            Button Goals = FindViewById<Button>(Resource.Id.button2);
+            Button History = FindViewById<Button>(Resource.Id.button3);
+
             SetContentView(Resource.Layout.Main);
             _buttonScanBle = FindViewById<Button>(Resource.Id.ButtonSearchBle);
             _textboxResults = FindViewById<EditText>(Resource.Id.TextBoxResults);
@@ -36,6 +41,22 @@ namespace AndroidApp4
             _bleAdapter = new Adapter();
             _bleAdapter.DeviceDiscovered += _bleAdapter_DeviceDiscovered;
             _bleAdapter.ScanTimeoutElapsed += _bleAdapter_ScanTimeoutElapsed;
+
+            Home.Click += delegate
+            {
+                var intent = new Intent(this, typeof(LandingActivity));
+                StartActivity(intent);
+            };
+            Goals.Click += delegate
+            {
+                var intent = new Intent(this, typeof(GoalsActivity));
+                StartActivity(intent);
+            };
+            History.Click += delegate
+            {
+                var intent = new Intent(this, typeof(HistoryActivity));
+                StartActivity(intent);
+            };
 
         }
 

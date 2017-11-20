@@ -19,8 +19,8 @@ public final class R {
         public static final int icon=0x7f020002;
     }
     public static final class id {
-        public static final int ButtonSearchBle=0x7f060014;
-        public static final int TextBoxResults=0x7f060015;
+        public static final int ButtonSearchBle=0x7f060015;
+        public static final int TextBoxResults=0x7f060016;
         public static final int blue=0x7f060002;
         public static final int button1=0x7f060010;
         public static final int button2=0x7f060011;
@@ -34,7 +34,7 @@ public final class R {
         public static final int imageView1=0x7f06000b;
         public static final int linearLayout1=0x7f06000f;
         public static final int progressBar1=0x7f060007;
-        public static final int relativeLayout1=0x7f060016;
+        public static final int relativeLayout1=0x7f060014;
         public static final int relativeLayout2=0x7f060000;
         public static final int spinning=0x7f060017;
         public static final int submit=0x7f060006;
