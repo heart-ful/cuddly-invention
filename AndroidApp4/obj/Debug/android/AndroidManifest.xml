@@ -10,7 +10,8 @@
   <application android:label="AndroidApp4" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <activity android:label="GoalsActivity" android:name="md533d51c78db3ef40c1577c92aafcf435a.GoalsActivity" />
     <activity android:label="HistoryActivity" android:name="md533d51c78db3ef40c1577c92aafcf435a.HistoryActivity" />
-    <activity android:icon="@drawable/icon" android:label="LandingActivity" android:name="md533d51c78db3ef40c1577c92aafcf435a.LandingActivity">
+    <activity android:icon="@drawable/icon" android:label="LandingActivity" android:name="md533d51c78db3ef40c1577c92aafcf435a.LandingActivity" />
+    <activity android:icon="@drawable/icon" android:label="LoginSystem" android:name="md533d51c78db3ef40c1577c92aafcf435a.LoginActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

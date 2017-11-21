@@ -1,3 +1,7 @@
+AndroidApp4.dialog_SignUp, AndroidApp4;md533d51c78db3ef40c1577c92aafcf435a.dialog_SignUp
+AndroidApp4.dialog_SignUp, AndroidApp4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md533d51c78db3ef40c1577c92aafcf435a.dialog_SignUp
+AndroidApp4.dialog_SignUp;md533d51c78db3ef40c1577c92aafcf435a.dialog_SignUp
+androidapp4.dialog_SignUp;md533d51c78db3ef40c1577c92aafcf435a.dialog_SignUp
 AndroidApp4.GoalsActivity, AndroidApp4;md533d51c78db3ef40c1577c92aafcf435a.GoalsActivity
 AndroidApp4.GoalsActivity, AndroidApp4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md533d51c78db3ef40c1577c92aafcf435a.GoalsActivity
 AndroidApp4.GoalsActivity;md533d51c78db3ef40c1577c92aafcf435a.GoalsActivity
@@ -10,6 +14,10 @@ AndroidApp4.LandingActivity, AndroidApp4;md533d51c78db3ef40c1577c92aafcf435a.Lan
 AndroidApp4.LandingActivity, AndroidApp4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md533d51c78db3ef40c1577c92aafcf435a.LandingActivity
 AndroidApp4.LandingActivity;md533d51c78db3ef40c1577c92aafcf435a.LandingActivity
 androidapp4.LandingActivity;md533d51c78db3ef40c1577c92aafcf435a.LandingActivity
+AndroidApp4.LoginActivity, AndroidApp4;md533d51c78db3ef40c1577c92aafcf435a.LoginActivity
+AndroidApp4.LoginActivity, AndroidApp4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md533d51c78db3ef40c1577c92aafcf435a.LoginActivity
+AndroidApp4.LoginActivity;md533d51c78db3ef40c1577c92aafcf435a.LoginActivity
+androidapp4.LoginActivity;md533d51c78db3ef40c1577c92aafcf435a.LoginActivity
 AndroidApp4.MainActivity, AndroidApp4;md533d51c78db3ef40c1577c92aafcf435a.MainActivity
 AndroidApp4.MainActivity, AndroidApp4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md533d51c78db3ef40c1577c92aafcf435a.MainActivity
 AndroidApp4.MainActivity;md533d51c78db3ef40c1577c92aafcf435a.MainActivity

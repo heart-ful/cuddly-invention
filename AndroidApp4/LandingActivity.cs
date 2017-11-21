@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace AndroidApp4
 {
-    [Activity(Label = "LandingActivity", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "LandingActivity", MainLauncher = false, Icon = "@drawable/icon")]
     public class LandingActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
